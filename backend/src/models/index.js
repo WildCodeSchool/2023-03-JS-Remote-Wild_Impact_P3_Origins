@@ -34,10 +34,15 @@ const models = {};
 // models.item = new ItemManager();
 // models.item.setDatabase(pool);
 
-const VideoManager = require("./VideoManager");
+const VideosManager = require("./VideosManager");
 
-models.video = new VideoManager();
-models.video.setDatabase(pool);
+models.videos = new VideosManager();
+models.videos.setDatabase(pool);
+
+const TeamsManager = require("./TeamsManager");
+
+models.teams = new TeamsManager();
+models.teams.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
