@@ -1,13 +1,15 @@
-import Home from "./pages/Home";
-
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserLayout from "./layout/UserLayout";
+import AdminLayout from "./layout/AdminLayout";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<UserLayout />} />
+        <Route path="/admin" element={<AdminLayout />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
