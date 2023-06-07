@@ -5,8 +5,16 @@ class VideosManager extends AbstractManager {
     super({ table: "videos" });
   }
 
-  findAll() {
-    return this.database.query(`select * from ${this.table}`);
+  findAll(game) {
+    let sql = `SELECT * FROM ${this.table}`;
+    const sqlValues = [];
+
+    if (game != null) {
+      sql += " WHERE game_id = ?";
+      sqlValues.push(game);
+    }
+
+    return this.database.query(sql, sqlValues);
   }
 
   find(id) {
@@ -14,19 +22,6 @@ class VideosManager extends AbstractManager {
       id,
     ]);
   }
-
-  //   insert(item) {
-  //     return this.database.query(`insert into ${this.table} (title) values (?)`, [
-  //       item.title,
-  //     ]);
-  //   }
-
-  //   update(item) {
-  //     return this.database.query(
-  //       `update ${this.table} set title = ? where id = ?`,
-  //       [item.title, item.id]
-  //     );
-  //   }
 }
 
 module.exports = VideosManager;

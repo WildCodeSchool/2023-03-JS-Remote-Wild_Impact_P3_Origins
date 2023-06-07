@@ -1,8 +1,8 @@
 const AbstractManager = require("./AbstractManager");
 
-class VideosManager extends AbstractManager {
+class ProfilsManager extends AbstractManager {
   constructor() {
-    super({ table: "teams" });
+    super({ table: "profils" });
   }
 
   findAll() {
@@ -16,4 +16,4 @@ class VideosManager extends AbstractManager {
   }
 }
 
-module.exports = VideosManager;
+module.exports = ProfilsManager;

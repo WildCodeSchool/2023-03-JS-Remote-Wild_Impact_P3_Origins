@@ -43,6 +43,17 @@ const TeamsManager = require("./TeamsManager");
 
 models.teams = new TeamsManager();
 models.teams.setDatabase(pool);
+
+const ProfilsManager = require("./ProfilsManager");
+
+models.profils = new ProfilsManager();
+models.profils.setDatabase(pool);
+
+const GamesManager = require("./GamesManager");
+
+models.games = new GamesManager();
+models.games.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
