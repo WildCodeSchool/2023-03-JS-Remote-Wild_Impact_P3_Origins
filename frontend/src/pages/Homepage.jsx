@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import EGamers from "../assets/Gamers-esport.png";
 
 function Homepage() {
@@ -17,12 +16,7 @@ function Homepage() {
             width="100%"
           />
         </div>
-
-
       </header>
-
-
-
     </div>
   );
 }

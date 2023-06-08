@@ -8,7 +8,6 @@ function Navbar() {
         <h1 className="menu-logo">Origin's digital</h1>
       </div>
       <nav className="nav-container">
-
         <ul className="menu">
           <li className="menu-item">
             <Link to="/" className="menu-item">
@@ -21,7 +20,6 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-
       </nav>
     </div>
   );
