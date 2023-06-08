@@ -6,7 +6,7 @@ const browse = (req, res) => {
   models.videos
     .findAll(game)
     .then((videos) => {
-      res.send(videos);
+      res.send(videos[0]);
     })
     .catch((err) => {
       console.error(err);
