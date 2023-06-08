@@ -18,9 +18,9 @@ function App() {
           <Route path="games" element={<Gamespage />} />
         </Route>
 
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
-          <Route path="/admin/teams" element={<Teams />} />
+          <Route path="teams" element={<Teams />} />
         </Route>
       </Routes>
     </BrowserRouter>
