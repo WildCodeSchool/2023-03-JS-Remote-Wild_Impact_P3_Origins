@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
+import Teams from "./pages/admin/Teams";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/admin/" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
           <Route path="profils" element={<Profils />} />
+          <Route path="teams" element={<Teams />} />
         </Route>
       </Routes>
     </BrowserRouter>
