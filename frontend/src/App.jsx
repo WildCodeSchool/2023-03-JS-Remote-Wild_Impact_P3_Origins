@@ -1,14 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./layout/UserLayout";
 import AdminLayout from "./layout/AdminLayout";
-
 import Homepage from "./pages/Homepage";
 import Gamespage from "./pages/Gamespage";
 import Navbar from "./components/Navbar";
 import "./scss/App.scss";
-
 import FormulaireExample from "./pages/admin/FormulaireExample";
-
 
 function App() {
   return (
