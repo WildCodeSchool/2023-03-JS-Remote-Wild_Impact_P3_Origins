@@ -12,9 +12,10 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/games" element={<Gamespage />} />
-        <Route path="/" element={<UserLayout />} />
+        <Route path="/" element={<UserLayout />} >
+          <Route path="" element={<Homepage />} />
+          <Route path="games" element={<Gamespage />} />
+        </Route>
 
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
