@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Teams from "./pages/admin/Teams";
+import AdminTeams from "./pages/admin/AdminTeams";
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
           <Route path="games" element={<Gamespage />} />
+          <Route path="teams" element={<Teams />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
-          <Route path="teams" element={<Teams />} />
+          <Route path="teams" element={<AdminTeams />} />
         </Route>
       </Routes>
     </BrowserRouter>
