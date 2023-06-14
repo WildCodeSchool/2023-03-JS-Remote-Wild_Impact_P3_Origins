@@ -44,7 +44,7 @@ const add = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("essaye encore");
+      res.sendStatus(500);
     });
 };
 
@@ -55,14 +55,14 @@ const edit = (req, res) => {
     .update(teams)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(404).send("Retente ta chance");
+        res.status(404).send("Votre modification n'a pas pu être effetué, un problème a surgi");
       } else {
         res.status(201).send("Votre modification a été effectué");
       }
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("toujours pas");
+      res.sendStatus(500);
     });
 };
 
