@@ -21,6 +21,13 @@ class TeamsManager extends AbstractManager {
       [name, acronym, src, alt]
     );
   }
+
+  update(name, acronym, src, alt, id) {
+    return this.database.query(
+      `update ${this.table} set name = ?, acronym = ?, src = ?, alt = ? where id = ?`,
+      [name, acronym, src, alt, id]
+    );
+  }
 }
 
 module.exports = TeamsManager;

@@ -48,8 +48,28 @@ const add = (req, res) => {
     });
 };
 
+const edit = (req, res) => {
+  const teams = req.body;
+  const { name, acronym, src, alt } = teams;
+  // const id = parseInt(req.params.id);
+  models.teams
+    .update(name, acronym, src, alt)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.status(404).send("osskour");
+      } else {
+        res.status(204).json({ ...req.body });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("toujours pas");
+    });
+};
+
 module.exports = {
   browse,
   read,
   add,
+  edit,
 };
