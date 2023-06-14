@@ -50,15 +50,15 @@ const add = (req, res) => {
 
 const edit = (req, res) => {
   const teams = req.body;
-  const { name, acronym, src, alt } = teams;
-  // const id = parseInt(req.params.id);
+  // const { name, acronym, src, alt } = teams;
+  teams.id = parseInt(req.params.id, 10);
   models.teams
-    .update(name, acronym, src, alt)
+    .update(teams)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(404).send("osskour");
+        res.status(404).send("Retente ta chance");
       } else {
-        res.status(204).json({ ...req.body });
+        res.status(201).send("Votre modification a été effectué");
       }
     })
     .catch((err) => {

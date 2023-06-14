@@ -22,11 +22,11 @@ class TeamsManager extends AbstractManager {
     );
   }
 
-  update(name, acronym, src, alt, id) {
-    return this.database.query(
-      `update ${this.table} set name = ?, acronym = ?, src = ?, alt = ? where id = ?`,
-      [name, acronym, src, alt, id]
-    );
+  update(teams) {
+    return this.database.query(`update ${this.table} set ? where id = ?`, [
+      teams,
+      teams.id,
+    ]);
   }
 }
 
