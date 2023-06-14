@@ -28,7 +28,28 @@ const read = (req, res) => {
     });
 };
 
+const add = (req, res) => {
+  const teams = req.body;
+  const { name, acronym, src, alt } = teams;
+  models.teams
+    .insert(name, acronym, src, alt)
+    .then(([result]) => {
+      res
+        .location(`/teams/${result.insertId}`)
+        .status(201)
+        .json({
+          id: result.insertId,
+          ...teams,
+        });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("essaye encore");
+    });
+};
+
 module.exports = {
   browse,
   read,
+  add,
 };

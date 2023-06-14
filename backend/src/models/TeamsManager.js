@@ -1,6 +1,6 @@
 const AbstractManager = require("./AbstractManager");
 
-class VideosManager extends AbstractManager {
+class TeamsManager extends AbstractManager {
   constructor() {
     super({ table: "teams" });
   }
@@ -14,6 +14,13 @@ class VideosManager extends AbstractManager {
       id,
     ]);
   }
+
+  insert(name, acronym, src, alt) {
+    return this.database.query(
+      `insert into ${this.table} (name, acronym, src, alt) values (?, ?, ?, ?)`,
+      [name, acronym, src, alt]
+    );
+  }
 }
 
-module.exports = VideosManager;
+module.exports = TeamsManager;
