@@ -50,7 +50,6 @@ const add = (req, res) => {
 
 const edit = (req, res) => {
   const teams = req.body;
-  // const { name, acronym, src, alt } = teams;
   teams.id = parseInt(req.params.id, 10);
   models.teams
     .update(teams)
