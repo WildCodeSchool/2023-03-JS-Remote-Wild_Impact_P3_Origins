@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./layout/UserLayout";
 import AdminLayout from "./layout/AdminLayout";
 import Homepage from "./pages/Homepage";
-import Gamespage from "./pages/Gamespage";
+import Games from "./pages/admin/Games";
 import Navbar from "./components/Navbar";
 import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
@@ -14,11 +14,12 @@ function App() {
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
-          <Route path="games" element={<Gamespage />} />
+          <Route path="games" element={<Games />} />
         </Route>
 
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
+          <Route path="games" element={<Games />} />
         </Route>
       </Routes>
     </BrowserRouter>
