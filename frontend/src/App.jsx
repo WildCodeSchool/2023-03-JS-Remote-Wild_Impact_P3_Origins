@@ -16,7 +16,6 @@ function App() {
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
-          <Route path="games" element={<Games />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
