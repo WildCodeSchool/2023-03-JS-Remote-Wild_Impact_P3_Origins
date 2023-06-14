@@ -28,6 +28,10 @@ class TeamsManager extends AbstractManager {
       teams.id,
     ]);
   }
+
+  delete(id) {
+    return this.database.query(`delete from ${this.table} where id = ?`, [id]);
+  }
 }
 
 module.exports = TeamsManager;
