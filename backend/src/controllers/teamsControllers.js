@@ -55,9 +55,7 @@ const edit = (req, res) => {
     .update(teams)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res
-          .status(404)
-          .send("Modification non effetuée");
+        res.status(404).send("Modification non effetuée");
       } else {
         res.status(201).send("Votre modification a été effectué");
       }
