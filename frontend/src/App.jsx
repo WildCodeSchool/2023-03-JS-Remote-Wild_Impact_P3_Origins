@@ -8,6 +8,7 @@ import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
+import Signup from "./pages/user/Signup";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
           <Route path="games" element={<Gamespage />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
