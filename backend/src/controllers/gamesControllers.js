@@ -66,9 +66,28 @@ const edit = (req, res) => {
     });
 };
 
+const destroy = (req, res) => {
+  const games = req.body;
+  games.id = parseInt(req.params.id, 10);
+  models.games
+    .delete(req.params.id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.status(200).send("La suppression a été effectuée");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   add,
   edit,
+  destroy,
 };
