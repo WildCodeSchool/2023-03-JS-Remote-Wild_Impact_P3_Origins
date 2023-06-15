@@ -2,13 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./layout/UserLayout";
 import AdminLayout from "./layout/AdminLayout";
 import Homepage from "./pages/Homepage";
-import Gamespage from "./pages/Gamespage";
+import Games from "./pages/admin/Games";
 import Navbar from "./components/Navbar";
 import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
 import Signup from "./pages/user/Signup";
+import Profil from "./pages/admin/Profil";
 
 function App() {
   return (
@@ -21,9 +22,12 @@ function App() {
           <Route path="signup" element={<Signup />} />
         </Route>
 
+        </Route>
         <Route path="/admin/" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
+          <Route path="games" element={<Games />} />
           <Route path="profils" element={<Profils />} />
+          <Route path="profils/:id" element={<Profil />} />
           <Route path="teams" element={<Teams />} />
         </Route>
       </Routes>

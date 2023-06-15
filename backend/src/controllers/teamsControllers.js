@@ -44,7 +44,43 @@ const add = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("essaye encore");
+      res.sendStatus(500);
+    });
+};
+
+const edit = (req, res) => {
+  const teams = req.body;
+  teams.id = parseInt(req.params.id, 10);
+  models.teams
+    .update(teams)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.status(404).send("Modification non effetuée");
+      } else {
+        res.status(201).send("Votre modification a été effectué");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const destroy = (req, res) => {
+  const teams = req.body;
+  teams.id = parseInt(req.params.id, 10);
+  models.teams
+    .delete(req.params.id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.status(201).send("Votre suppression à été effectué");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
     });
 };
 
@@ -52,4 +88,6 @@ module.exports = {
   browse,
   read,
   add,
+  edit,
+  destroy,
 };

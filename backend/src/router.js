@@ -23,6 +23,8 @@ router.get("/videos/:id", videosControllers.read); // Récupère par id
 router.get("/teams", teamsControllers.browse);
 router.get("/teams/:id", teamsControllers.read);
 router.post("/teams", teamsControllers.add);
+router.put("/teams/:id", teamsControllers.edit);
+router.delete("/teams/:id", teamsControllers.destroy);
 
 router.get("/profils", profilsControllers.browse);
 router.get("/profils/:id", profilsControllers.read);

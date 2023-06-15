@@ -1,0 +1,15 @@
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.game-item img {
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.game-item h2 {
+  color: white;
+}
