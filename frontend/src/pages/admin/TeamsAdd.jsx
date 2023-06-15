@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import connexion from "../../admin/connexion";
 
 function TeamsAdd() {
   const [teams, setTeams] = useState({
