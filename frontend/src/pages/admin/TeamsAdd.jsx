@@ -13,21 +13,23 @@ function TeamsAdd() {
     setTeams({ ...teams, [name]: value });
   };
 
-  // const postTeams = (event) => {
-  //   event.preventDefault();
-  //   fetch(`${import.meta.env.VITE_BACKEND_URL}/teams`, {
-  //     method: "POST",
-  //     body: JSON.stringify(teams),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((json) => )
-  // }
+  const postTeams = (event) => {
+    event.preventDefault();
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teams`, {
+      method: "POST",
+      body: JSON.stringify(teams),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => console.info(json))
+      .catch((err) => console.error(err));
+  };
+
   return (
-    <form>
+    <form onSubmit={(event) => postTeams(event)}>
       <label>
         Name
         <input
@@ -87,6 +89,7 @@ function TeamsAdd() {
           value={teams.Source_image}
         />
       </label>
+      <button type="submit">Ajouter</button>
     </form>
   );
 }

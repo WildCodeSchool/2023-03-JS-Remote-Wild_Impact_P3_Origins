@@ -26,7 +26,7 @@ function App() {
           <Route path="games" element={<Games />} />
           <Route path="profils" element={<Profils />} />
           <Route path="profils/:id" element={<Profil />} />
-          <Route path="teams" element={<TeamsAdd />} />
+          <Route path="teams/add" element={<TeamsAdd />} />
         </Route>
       </Routes>
     </BrowserRouter>
