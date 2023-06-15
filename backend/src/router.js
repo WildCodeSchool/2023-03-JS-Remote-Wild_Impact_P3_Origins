@@ -28,6 +28,7 @@ router.delete("/teams/:id", teamsControllers.destroy);
 
 router.get("/profils", profilsControllers.browse);
 router.get("/profils/:id", profilsControllers.read);
+router.put("/profils/:id", profilsControllers.edit);
 
 router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
