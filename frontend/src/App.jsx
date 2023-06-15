@@ -9,6 +9,7 @@ import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
 import Profil from "./pages/admin/Profil";
+import Signup from "./pages/user/Signup";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>

@@ -54,6 +54,11 @@ const GamesManager = require("./GamesManager");
 models.games = new GamesManager();
 models.games.setDatabase(pool);
 
+const AuthManager = require("./AuthManager");
+
+models.auth = new AuthManager();
+models.auth.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

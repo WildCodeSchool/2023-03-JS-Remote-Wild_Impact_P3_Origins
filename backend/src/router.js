@@ -7,6 +7,9 @@ const videosControllers = require("./controllers/videosControllers");
 const teamsControllers = require("./controllers/teamsControllers");
 const profilsControllers = require("./controllers/profilsControllers");
 const gamesControllers = require("./controllers/gamesControllers");
+const authControllers = require("./controllers/authControllers");
+
+const { checkUserData } = require("./services/auth");
 
 // router.get("/items", itemControllers.browse);
 // router.get("/items/:id", itemControllers.read);
@@ -28,5 +31,7 @@ router.get("/profils/:id", profilsControllers.read);
 
 router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
+
+router.post("/signup", checkUserData, authControllers.signup);
 
 module.exports = router;
