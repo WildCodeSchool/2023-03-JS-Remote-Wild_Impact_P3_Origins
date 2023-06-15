@@ -28,7 +28,27 @@ const read = (req, res) => {
     });
 };
 
+const edit = async (req, res) => {
+  const profils = req.body;
+  profils.id = parseInt(req.params.id, 10);
+
+  try {
+    await models.users.update(profils.email, profils.id);
+    await models.profils.update(
+      profils.firstname,
+      profils.lastname,
+      profils.src,
+      profils.id
+    );
+    res.Status(204).send("Votre modifification a bien été enregistré");
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+};
+
 module.exports = {
   browse,
   read,
+  edit,
 };
