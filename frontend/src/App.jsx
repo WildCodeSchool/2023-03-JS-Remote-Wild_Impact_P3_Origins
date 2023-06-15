@@ -18,13 +18,14 @@ function App() {
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
-          <Route path="games" element={<Gamespage />} />
           <Route path="signup" element={<Signup />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
           <Route path="" element={<FormulaireExample />} />
+          <Route path="games" element={<Games />} />
           <Route path="profils" element={<Profils />} />
+          <Route path="profils/:id" element={<Profil />} />
           <Route path="teams" element={<Teams />} />
         </Route>
       </Routes>
