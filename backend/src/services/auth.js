@@ -1,34 +1,18 @@
-const joi = require("joi");
+const bcrypt = require("bcryptjs");
 
-const authSchema = () => {
-  return joi.object({
-    email: joi.string().email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com"] },
-    }),
-
-    password: joi
-      .string()
-      .min(6)
-      .max(30)
-      .pattern(/^[a-zA-Z0-9]+$/)
-      .required(),
-  });
-};
-
-const checkUserData = (req, res, next) => {
-  const { error } = authSchema("required").validate(req.body, {
-    abortEarly: false,
-  });
-
-  if (error) {
-    console.error(error);
-    res.status(400).json({ msg: "Invalid email or password" });
-  } else {
-    next();
-  }
+const hashPassword = (req, res, next) => {
+  bcrypt
+    .hash(req.body.password, 8)
+    .then((hash) => {
+      req.body.password = hash;
+      next();
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Internal server error");
+    });
 };
 
 module.exports = {
-  checkUserData,
+  hashPassword,
 };
