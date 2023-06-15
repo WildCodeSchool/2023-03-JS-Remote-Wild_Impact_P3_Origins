@@ -51,5 +51,5 @@ const add = (req, res) => {
 module.exports = {
   browse,
   read,
-  add
+  add,
 };
