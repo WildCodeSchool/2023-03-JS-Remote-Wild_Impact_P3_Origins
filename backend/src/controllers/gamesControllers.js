@@ -28,7 +28,28 @@ const read = (req, res) => {
     });
 };
 
+const add = (req, res) => {
+  const games = req.body;
+  const { label, acronyme, src, alt, logo } = games;
+  models.games
+    .insert(label, acronyme, src, alt, logo)
+    .then(([result]) => {
+      res
+        .location(`/games/${result.insertId}`)
+        .status(201)
+        .json({
+          id: result.insertId,
+          ...games,
+        });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
+  add
 };
