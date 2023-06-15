@@ -21,6 +21,13 @@ class GamesManager extends AbstractManager {
       [label, acronyme, src, alt, logo]
     );
   }
+
+  update(games) {
+    return this.database.query(`update ${this.table} set ? where id = ?`, [
+      games,
+      games.id,
+    ]);
+  }
 }
 
 module.exports = GamesManager;

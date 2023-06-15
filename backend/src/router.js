@@ -29,5 +29,6 @@ router.get("/profils/:id", profilsControllers.read);
 router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
 router.post("/games", gamesControllers.add);
+router.put("/games/:id", gamesControllers.edit);
 
 module.exports = router;

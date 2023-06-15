@@ -48,8 +48,27 @@ const add = (req, res) => {
     });
 };
 
+const edit = (req, res) => {
+  const games = req.body;
+  games.id = parseInt(req.params.id, 10);
+  models.games
+    .update(games)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.status(404).send("Modification non effectuée");
+      } else {
+        res.status(201).send("Votre modification a été effectuée");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   add,
+  edit,
 };
