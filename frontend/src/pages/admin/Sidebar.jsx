@@ -1,4 +1,6 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   TfiAlignJustify,
   TfiHome,
@@ -8,11 +10,10 @@ import {
   TfiCup,
   TfiGallery,
   TfiLayersAlt,
-  TfiIdBadge
-} from "react-icons/tfi";;
-import { NavLink } from "react-router-dom";
+  TfiIdBadge,
+} from "react-icons/tfi";
 
-function Sidebar({ children }) {
+function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
@@ -65,18 +66,18 @@ function Sidebar({ children }) {
     {
       path: "/admin/sliders",
       name: "Sliders",
-      icon: < TfiLayersAlt />,
+      icon: <TfiLayersAlt />,
     },
     {
       path: "/admin/grilles",
       name: "Grilles",
-      icon: < TfiGallery />,
+      icon: <TfiGallery />,
     },
 
     {
       path: "/admin/profils",
       name: "Profils",
-      icon: < TfiIdBadge />,
+      icon: <TfiIdBadge />,
     },
   ];
   return (
@@ -93,13 +94,8 @@ function Sidebar({ children }) {
             <TfiAlignJustify onClick={toggle} />
           </div>
         </div>
-        {menuItem.map((item, index) => (
-          <NavLink
-            to={item.path}
-            key={index}
-            className="link"
-            activeclassName="active"
-          >
+        {menuItem.map((item) => (
+          <NavLink to={item.path} className="link" activeclassName="active">
             <div className="icon">{item.icon}</div>
             <div
               style={{ display: isOpen ? "block" : "none" }}
@@ -110,7 +106,6 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
-      <main>{children}</main>
     </div>
   );
 }
