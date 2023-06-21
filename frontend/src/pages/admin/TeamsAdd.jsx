@@ -67,8 +67,7 @@ function TeamsAdd() {
           minLength={10}
           maxLength={255}
           name="src"
-          onChange={(event) =>
-            handleTeam(event.target.src, event.target.value)
+          onChange={(event) => handleTeam(event.target.src, event.target.value)
           }
           value={teams.src}
         />
