@@ -83,9 +83,9 @@ function TeamsAdd() {
           maxLength={255}
           name="Alt"
           onChange={(event) =>
-            handleTeam(event.target.Source_image, event.target.value)
+            handleTeam(event.target.Alt, event.target.value)
           }
-          value={teams.Source_image}
+          value={teams.Alt}
         />
       </label>
       <button type="submit">Ajouter</button>
