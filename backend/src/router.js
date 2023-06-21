@@ -34,5 +34,6 @@ router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
 
 router.post("/signup", checkUserData, hashPassword, authControllers.signup);
+router.post("/signin", checkUserData, authControllers.signin);
 
 module.exports = router;

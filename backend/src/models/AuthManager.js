@@ -18,6 +18,13 @@ class AuthManager extends AbstractManager {
       [profil.firstname, profil.lastname, profil.src, userId]
     );
   }
+
+  findUser(email) {
+    return this.database.query(
+      `select password, role from ${this.table} where email = ?`,
+      [email]
+    );
+  }
 }
 
 module.exports = AuthManager;

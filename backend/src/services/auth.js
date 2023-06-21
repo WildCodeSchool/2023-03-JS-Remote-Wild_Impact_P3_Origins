@@ -13,6 +13,12 @@ const hashPassword = (req, res, next) => {
     });
 };
 
+const checkPassword = async (hash, pwd) => {
+  const check = await bcrypt.compare(pwd, hash);
+  return check;
+};
+
 module.exports = {
   hashPassword,
+  checkPassword,
 };
