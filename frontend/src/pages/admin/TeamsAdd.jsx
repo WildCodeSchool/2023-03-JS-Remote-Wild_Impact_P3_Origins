@@ -82,8 +82,7 @@ function TeamsAdd() {
           minLength={1}
           maxLength={255}
           name="Alt"
-          onChange={(event) =>
-            handleTeam(event.target.Alt, event.target.value)
+          onChange={(event) => handleTeam(event.target.Alt, event.target.value)
           }
           value={teams.Alt}
         />
