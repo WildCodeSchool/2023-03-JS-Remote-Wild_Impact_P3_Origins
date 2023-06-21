@@ -26,7 +26,7 @@ CREATE TABLE
     users(
         `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `email` VARCHAR(255) UNIQUE,
-        `password` VARCHAR(50),
+        `password` LONGTEXT,
         `role` VARCHAR(255) DEFAULT 'user'
     );
 
