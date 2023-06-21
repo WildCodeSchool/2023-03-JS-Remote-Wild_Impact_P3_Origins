@@ -32,7 +32,12 @@ router.post("/teams", teamsControllers.add);
 router.put("/teams/:id", teamsControllers.edit);
 router.delete("/teams/:id", teamsControllers.destroy);
 
+router.post("/games", gamesControllers.add);
+router.put("/games/:id", gamesControllers.edit);
+router.delete("/games/:id", gamesControllers.destroy);
+
 router.get("/profils", profilsControllers.browse);
 router.get("/profils/:id", profilsControllers.read);
+router.put("/profils/:id", profilsControllers.edit);
 
 module.exports = router;

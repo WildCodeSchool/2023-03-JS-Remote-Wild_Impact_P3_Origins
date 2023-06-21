@@ -44,6 +44,11 @@ const TeamsManager = require("./TeamsManager");
 models.teams = new TeamsManager();
 models.teams.setDatabase(pool);
 
+const UsersManager = require("./UsersManager");
+
+models.users = new UsersManager();
+models.users.setDatabase(pool);
+
 const ProfilsManager = require("./ProfilsManager");
 
 models.profils = new ProfilsManager();
