@@ -13,7 +13,7 @@ const verifyToken = (token) => {
 const checkUser = (req, res, next) => {
   if (req.cookies.ott_token) {
     const token = verifyToken(req.cookies.ott_token);
-    if (token) {
+    if (token.role === "admin") {
       next();
     } else {
       res.status(401).json({ msg: "Unauthorized" });
