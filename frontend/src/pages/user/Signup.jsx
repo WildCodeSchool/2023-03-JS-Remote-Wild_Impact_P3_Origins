@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import connexion from "../../services/connexion";
 
 function Signup() {
   const [userSignup, setUserSignup] = useState({
@@ -10,18 +11,13 @@ function Signup() {
     setUserSignup({ ...userSignup, [event.target.name]: event.target.value });
   };
 
-  const login = (event) => {
+  const createAccount = async (event) => {
     event.preventDefault();
-    return fetch(`${import.meta.env.VITE_BACKEND_URL}/signup`, {
-      method: "POST",
-      body: JSON.stringify(userSignup),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .catch((err) => console.error(err));
+    try {
+      await connexion.post("/signup", userSignup);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -45,7 +41,7 @@ function Signup() {
         />
         <label htmlFor="password">Password</label>
 
-        <button type="button" onClick={(event) => login(event)}>
+        <button type="button" onClick={(event) => createAccount(event)}>
           Signup
         </button>
       </form>
