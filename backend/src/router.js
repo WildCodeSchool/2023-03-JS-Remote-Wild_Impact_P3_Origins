@@ -2,7 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-// const itemControllers = require("./controllers/itemControllers");
 const videosControllers = require("./controllers/videosControllers");
 const teamsControllers = require("./controllers/teamsControllers");
 const profilsControllers = require("./controllers/profilsControllers");
@@ -11,29 +10,29 @@ const authControllers = require("./controllers/authControllers");
 
 const { checkUserData } = require("./services/checkUserData");
 const { hashPassword } = require("./services/auth");
+const { checkUser } = require("./services/jwt");
 
-// router.get("/items", itemControllers.browse);
-// router.get("/items/:id", itemControllers.read);
-// router.put("/items/:id", itemControllers.edit);
-// router.post("/items", itemControllers.add);
-// router.delete("/items/:id", itemControllers.destroy);
-
+// Route public
 router.get("/videos", videosControllers.browse); // Récupère All
 router.get("/videos/:id", videosControllers.read); // Récupère par id
 
 router.get("/teams", teamsControllers.browse);
 router.get("/teams/:id", teamsControllers.read);
-router.post("/teams", teamsControllers.add);
-router.put("/teams/:id", teamsControllers.edit);
-router.delete("/teams/:id", teamsControllers.destroy);
-
-router.get("/profils", profilsControllers.browse);
-router.get("/profils/:id", profilsControllers.read);
 
 router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
 
 router.post("/signup", checkUserData, hashPassword, authControllers.signup);
 router.post("/signin", checkUserData, authControllers.signin);
+
+// Route privée avec JWT
+router.use(checkUser);
+
+router.post("/teams", teamsControllers.add);
+router.put("/teams/:id", teamsControllers.edit);
+router.delete("/teams/:id", teamsControllers.destroy);
+
+router.get("/profils", profilsControllers.browse);
+router.get("/profils/:id", profilsControllers.read);
 
 module.exports = router;
