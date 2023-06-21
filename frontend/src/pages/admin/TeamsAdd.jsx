@@ -67,8 +67,7 @@ function TeamsAdd() {
           minLength={10}
           maxLength={255}
           name="src"
-          onChange={(event) => handleTeam(event.target.src, event.target.value)
-          }
+          onChange={(event) => handleTeam(event.target.src, event.target.value)}
           value={teams.src}
         />
       </label>
@@ -81,8 +80,7 @@ function TeamsAdd() {
           minLength={1}
           maxLength={255}
           name="alt"
-          onChange={(event) => handleTeam(event.target.alt, event.target.value)
-          }
+          onChange={(event) => handleTeam(event.target.alt, event.target.value)}
           value={teams.alt}
         />
       </label>
