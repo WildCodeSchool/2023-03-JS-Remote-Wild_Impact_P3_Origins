@@ -7,9 +7,10 @@ import Navbar from "./components/Navbar";
 import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
-import TeamsAdd from "./pages/admin/TeamsAdd";
+import Teams from "./pages/admin/Teams";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
+import Signin from "./pages/user/Signin";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="signin" element={<Signin />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
@@ -26,7 +28,7 @@ function App() {
           <Route path="games" element={<Games />} />
           <Route path="profils" element={<Profils />} />
           <Route path="profils/:id" element={<Profil />} />
-          <Route path="teams/add" element={<TeamsAdd />} />
+          <Route path="teams" element={<Teams />} />
         </Route>
       </Routes>
     </BrowserRouter>
