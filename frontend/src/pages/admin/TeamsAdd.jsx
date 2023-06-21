@@ -51,11 +51,11 @@ function TeamsAdd() {
           required
           minLength={1}
           maxLength={255}
-          name="acronym"
+          name="acronyme"
           onChange={(event) =>
-            handleTeam(event.target.acronym, event.target.value)
+            handleTeam(event.target.acronyme, event.target.value)
           }
-          value={teams.acronym}
+          value={teams.acronyme}
         />
       </label>
 
@@ -66,9 +66,11 @@ function TeamsAdd() {
           required
           minLength={10}
           maxLength={255}
-          name="src"
-          onChange={(event) => handleTeam(event.target.src, event.target.value)}
-          value={teams.src}
+          name="source"
+          onChange={(event) =>
+            handleTeam(event.target.source, event.target.value)
+          }
+          value={teams.source}
         />
       </label>
 
@@ -79,9 +81,11 @@ function TeamsAdd() {
           required
           minLength={1}
           maxLength={255}
-          name="alt"
-          onChange={(event) => handleTeam(event.target.alt, event.target.value)}
-          value={teams.alt}
+          name="alternatif"
+          onChange={(event) =>
+            handleTeam(event.target.alternatif, event.target.value)
+          }
+          value={teams.alternatif}
         />
       </label>
       <button type="submit">Ajouter</button>

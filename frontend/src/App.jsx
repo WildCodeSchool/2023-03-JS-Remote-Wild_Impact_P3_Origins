@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
+import Teams from "./pages/admin/Teams";
 import TeamsAdd from "./pages/admin/TeamsAdd";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
@@ -26,6 +27,7 @@ function App() {
           <Route path="games" element={<Games />} />
           <Route path="profils" element={<Profils />} />
           <Route path="profils/:id" element={<Profil />} />
+          <Route path="teams" element={<Teams />} />
           <Route path="teams/add" element={<TeamsAdd />} />
         </Route>
       </Routes>
