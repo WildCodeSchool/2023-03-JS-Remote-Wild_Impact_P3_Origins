@@ -47,7 +47,6 @@ function App() {
           <Route path="teams/:id" element={<AdminDashboard />} />
 
           <Route path="teams/add" element={<TeamsAdd />} />
-
         </Route>
       </Routes>
     </BrowserRouter>
