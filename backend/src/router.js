@@ -32,9 +32,13 @@ router.delete("/teams/:id", teamsControllers.destroy);
 
 router.get("/profils", profilsControllers.browse);
 router.get("/profils/:id", profilsControllers.read);
+router.put("/profils/:id", profilsControllers.edit);
 
 router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
+router.post("/games", gamesControllers.add);
+router.put("/games/:id", gamesControllers.edit);
+router.delete("/games/:id", gamesControllers.destroy);
 
 router.post("/signup", checkUserData, authControllers.signup);
 
