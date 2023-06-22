@@ -10,6 +10,7 @@ import "./scss/App.scss";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Profils from "./pages/admin/Profils";
 import TeamsAdd from "./pages/admin/TeamsAdd";
+import TeamsAdd from "./pages/admin/Teams";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
 import FormAddVideo from "./pages/admin/FormAddVideo";
