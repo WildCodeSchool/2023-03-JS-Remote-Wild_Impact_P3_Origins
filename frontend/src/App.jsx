@@ -8,7 +8,7 @@ import "./scss/App.scss";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Profils from "./pages/admin/Profils";
-import Teams from "./pages/admin/Teams";
+import TeamsAdd from "./pages/admin/TeamsAdd";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
 
@@ -42,7 +42,8 @@ function App() {
 
           <Route path="teams" element={<Teams />} />
           <Route path="teams/:id" element={<AdminDashboard />} />
-          <Route path="teams/add" element={<AdminDashboard />} />
+          <Route path="teams/add" element={<TeamsAdd />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
