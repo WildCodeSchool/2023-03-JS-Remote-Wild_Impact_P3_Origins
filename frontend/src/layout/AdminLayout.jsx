@@ -1,11 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Sidebar from "../pages/admin/Sidebar";
 
 function AdminLayout() {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <header>
+      <div className="db-container">
+        <Sidebar />
+        <Outlet />
+      </div>
+    </header>
   );
 }
 

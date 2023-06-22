@@ -3,7 +3,8 @@ import UserLayout from "./layout/UserLayout";
 import AdminLayout from "./layout/AdminLayout";
 import Homepage from "./pages/Homepage";
 import Games from "./pages/admin/Games";
-import Navbar from "./components/Navbar";
+import Gamespage from "./pages/Gamespage";
+import Videospage from "./pages/Videospage";
 import "./scss/App.scss";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -11,15 +12,17 @@ import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
+import FormAddVideo from "./pages/admin/FormAddVideo";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="games" element={<Gamespage />} />
+          <Route path="videos" element={<Videospage />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
@@ -31,7 +34,7 @@ function App() {
 
           <Route path="videos" element={<AdminDashboard />} />
           <Route path="videos/:id" element={<AdminDashboard />} />
-          <Route path="videos/add" element={<AdminDashboard />} />
+          <Route path="videos/add" element={<FormAddVideo />} />
 
           <Route path="sliders" element={<AdminDashboard />} />
           <Route path="grilles" element={<AdminDashboard />} />
