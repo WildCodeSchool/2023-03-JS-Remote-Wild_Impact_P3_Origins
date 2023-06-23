@@ -9,8 +9,9 @@ import "./scss/App.scss";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Profils from "./pages/admin/Profils";
-import TeamsAdd from "./pages/admin/TeamsAdd";
 import Teams from "./pages/admin/Teams";
+import TeamsUpdate from "./pages/admin/TeamsUpdate";
+import TeamsAdd from "./pages/admin/TeamsAdd";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
 import FormAddVideo from "./pages/admin/FormAddVideo";
@@ -44,8 +45,7 @@ function App() {
           <Route path="profils/:id" element={<Profil />} />
 
           <Route path="teams" element={<Teams />} />
-          <Route path="teams/:id" element={<AdminDashboard />} />
-
+          <Route path="teams/:id" element={<TeamsUpdate />} />
           <Route path="teams/add" element={<TeamsAdd />} />
         </Route>
       </Routes>
