@@ -1,55 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import TeamType from "../Types/team";
 
 function TeamsCard({ team }) {
-  const [teams, setTeams] = useState({
-    id: null,
-    name: "",
-    acronym: "",
-    src: "",
-    alt: "",
-  });
-
-  const getTeams = () => {
+  const getTeam = () => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/teams`)
       .then((res) => res.json())
-      .then((data) => setTeams(data))
+      .then((data) => team(data))
       .catch((err) => console.error(err));
   };
 
-  const deleteTeams = (event) => {
+  const deleteTeam = (event) => {
     event.preventDefault();
     fetch(`${import.meta.env.VITE_BACKEND_URL}/teams/${team.id}`, {
       method: "DELETE",
     })
-      .then(() => {
-        setTeams(teams);
-        getTeams();
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const updateTeams = (event) => {
-    event.preventDefault();
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/teams/${teams.id}`, {
-      method: "PUT",
-      body: JSON.stringify(teams),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
       .then((res) => res.json())
-      .then((json) => {
-        setTeams(json);
-        getTeams();
-      })
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getTeams();
+    getTeam();
   }, []);
 
   return (
@@ -58,12 +30,12 @@ function TeamsCard({ team }) {
       <div className="image">
         <img src={team.src} alt={team.alt} className="poster" />
       </div>
-      <button type="button" onClick={(event) => deleteTeams(event)}>
-        Supprimer
-      </button>
-      <button type="button" onClick={(event) => updateTeams(event)}>
-        Modifier
-      </button>
+      <form onSubmit={deleteTeam}>
+        <button type="submit">Supprimer</button>
+        <button type="button">
+          <Link to={`/admin/teams/${team.id}`}>Modifier</Link>
+        </button>
+      </form>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import "./scss/App.scss";
 import FormulaireExample from "./pages/admin/FormulaireExample";
 import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
+import TeamsUpdate from "./pages/admin/TeamsUpdate";
 import TeamsAdd from "./pages/admin/TeamsAdd";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
@@ -28,6 +29,7 @@ function App() {
           <Route path="profils" element={<Profils />} />
           <Route path="profils/:id" element={<Profil />} />
           <Route path="teams" element={<Teams />} />
+          <Route path="teams/:id" element={<TeamsUpdate />} />
           <Route path="teams/add" element={<TeamsAdd />} />
         </Route>
       </Routes>
