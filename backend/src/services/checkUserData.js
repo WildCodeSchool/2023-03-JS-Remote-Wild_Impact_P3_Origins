@@ -22,8 +22,17 @@ const checkUserData = (req, res, next) => {
   });
 
   if (error) {
-    console.error(error);
-    res.status(400).json({ msg: "Invalid email or password" });
+    console.error(error.details[0]);
+
+    if (error.details[0].type === "string.min") {
+      res.status(400).json({
+        msg: "Le mot de passe doit contenir entre 6 et 30 caractères, uniquement en minuscule, majuscule ou nombres.",
+      });
+    } else if (error.details[0].type === "string.email") {
+      res.status(400).json({ msg: "L'email est invalide" });
+    } else {
+      res.status(400).json({ msg: "Invalid email or password" });
+    }
   } else {
     next();
   }
