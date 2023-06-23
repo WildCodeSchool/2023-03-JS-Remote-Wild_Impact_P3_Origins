@@ -15,6 +15,11 @@ function Navbar() {
             </Link>
           </li>
           <li className="menu-item">
+            <Link to="/videos" className="menu-item">
+              Videos
+            </Link>
+          </li>
+          <li className="menu-item">
             <Link to="/games" className="menu-item">
               Jeux
             </Link>

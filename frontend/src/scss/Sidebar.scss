@@ -1,0 +1,51 @@
+.sidebar {
+  background: #314384;
+  color: #fff;
+  height: 100vh;
+  width: 200px;
+  transition: all 0.5s;
+  font-family: $title-font-family;
+}
+
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.bars {
+  display: flex;
+  font-size: 1.5rem;
+  margin-left: 50px;
+}
+
+.link {
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link:hover {
+  background: #5170be;
+  color: #d6d7e2;
+  transition: all 0.5s;
+}
+
+.link:active {
+  background: #5170be;
+  color: #fff;
+}
+
+.link_text {
+  font-size: 1.1rem;
+}
+
+.icon {
+  font-size: 1.4rem;
+}

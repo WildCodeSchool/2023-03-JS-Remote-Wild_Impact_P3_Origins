@@ -1,5 +1,4 @@
 import React from "react";
-import "./FormulaireExample.scss";
 
 function FormulaireExample() {
   return (
