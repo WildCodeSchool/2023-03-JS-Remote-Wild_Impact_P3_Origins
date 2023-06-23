@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Games.scss";
 import GamesCard from "../../components/GamesCard";
 
 function Games() {
