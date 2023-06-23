@@ -12,7 +12,6 @@ import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
 import TeamsUpdate from "./pages/admin/TeamsUpdate";
 import TeamsAdd from "./pages/admin/TeamsAdd";
-import Teams from "./pages/admin/Teams";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
 import FormAddVideo from "./pages/admin/FormAddVideo";
@@ -47,7 +46,6 @@ function App() {
 
           <Route path="teams" element={<Teams />} />
           <Route path="teams/:id" element={<TeamsUpdate />} />
-          <Route path="teams/$:id" element={<AdminDashboard />} />
           <Route path="teams/add" element={<TeamsAdd />} />
         </Route>
       </Routes>
