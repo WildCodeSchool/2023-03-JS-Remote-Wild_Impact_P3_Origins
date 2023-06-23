@@ -10,7 +10,7 @@ const signup = async (req, res) => {
     res.status(201).json({ msg: "Compte créé, Merci de vous identifier." });
   } catch (error) {
     if (error.code === "ER_DUP_ENTRY") {
-      res.sendStatus(409);
+      res.status(409).json({ msg: "Email déjà existant." });
     } else {
       res.sendStatus(500);
     }
