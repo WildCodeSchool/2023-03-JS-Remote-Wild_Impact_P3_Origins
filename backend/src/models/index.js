@@ -29,10 +29,40 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+// const ItemManager = require("./ItemManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
+// models.item = new ItemManager();
+// models.item.setDatabase(pool);
+
+const VideosManager = require("./VideosManager");
+
+models.videos = new VideosManager();
+models.videos.setDatabase(pool);
+
+const TeamsManager = require("./TeamsManager");
+
+models.teams = new TeamsManager();
+models.teams.setDatabase(pool);
+
+const UsersManager = require("./UsersManager");
+
+models.users = new UsersManager();
+models.users.setDatabase(pool);
+
+const ProfilsManager = require("./ProfilsManager");
+
+models.profils = new ProfilsManager();
+models.profils.setDatabase(pool);
+
+const GamesManager = require("./GamesManager");
+
+models.games = new GamesManager();
+models.games.setDatabase(pool);
+
+const AuthManager = require("./AuthManager");
+
+models.auth = new AuthManager();
+models.auth.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
