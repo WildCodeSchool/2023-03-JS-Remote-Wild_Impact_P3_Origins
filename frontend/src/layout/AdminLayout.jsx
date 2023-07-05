@@ -8,12 +8,12 @@ function AdminLayout() {
 
   if (user.role === "admin") {
     return (
-     <header>
-      <div className="db-container">
-        <Sidebar />
-        <Outlet />
-      </div>
-     </header>
+      <header>
+        <div className="db-container">
+          <Sidebar />
+          <Outlet />
+        </div>
+      </header>
     );
   }
   return <Navigate to="/signin" replace />;
