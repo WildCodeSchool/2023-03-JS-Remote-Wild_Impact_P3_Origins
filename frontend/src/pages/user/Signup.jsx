@@ -61,10 +61,6 @@ function Signup() {
         <button type="button" onClick={(event) => createAccount(event)}>
           Signup
         </button>
-        <button type="button" onClick={notify}>
-          Notify
-        </button>
-        ;
         <ToastContainer
           autoClose={5000}
           position="top-center"
