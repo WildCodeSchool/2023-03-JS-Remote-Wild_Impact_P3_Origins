@@ -1,13 +1,18 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useCurrentUser } from "../contexts/AuthContexts";
 
 function AdminLayout() {
-  return (
-    <div>
-      <h1>AdminLayout</h1>
-      <Outlet />
-    </div>
-  );
+  const { user } = useCurrentUser();
+
+  if (user.role === "admin") {
+    return (
+      <div>
+        <Outlet />
+      </div>
+    );
+  }
+  return <Navigate to="/signin" replace />;
 }
 
 export default AdminLayout;

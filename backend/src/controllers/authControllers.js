@@ -19,8 +19,9 @@ const signup = async (req, res) => {
 
 const signin = async (req, res) => {
   const user = await models.auth.findUser(req.body.email);
+
   if (
-    user[0] &&
+    user[0][0] &&
     (await checkPassword(user[0][0].password, req.body.password))
   ) {
     const token = createJwt({ email: req.body.email, role: user[0][0].role });
@@ -31,9 +32,12 @@ const signin = async (req, res) => {
         httpOnly: true,
         expire: new Date() + 1000 * 60 * 60,
       })
-      .json({ role: user[0][0].role });
+      .json({
+        role: user[0][0].role,
+        id: user[0][0].id,
+      });
   } else {
-    res.status(401).send("Wrong credentials");
+    res.sendStatus(401);
   }
 };
 
