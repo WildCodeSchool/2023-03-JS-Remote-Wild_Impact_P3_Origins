@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import connexion from "../../services/connexion";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
   const [userSignup, setUserSignup] = useState({
@@ -6,22 +10,33 @@ function Signup() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleUser = (event) => {
     setUserSignup({ ...userSignup, [event.target.name]: event.target.value });
   };
 
-  const login = (event) => {
+  const notify = (signup) => {
+    if (signup.status === 201) {
+      toast.success(signup.data.msg);
+      setTimeout(() => {
+        navigate("/");
+      }, 10000);
+    } else if (signup.status === 409) {
+      toast.info(signup.data.msg);
+    } else {
+      toast.error(signup.data.msg);
+    }
+  };
+
+  const createAccount = async (event) => {
     event.preventDefault();
-    return fetch(`${import.meta.env.VITE_BACKEND_URL}/signup`, {
-      method: "POST",
-      body: JSON.stringify(userSignup),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .catch((err) => console.error(err));
+    try {
+      const signup = await connexion.post("/signup", userSignup);
+      notify(signup);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -35,7 +50,6 @@ function Signup() {
           required
         />
         <label htmlFor="email">Email</label>
-
         <input
           type="password"
           value={userSignup.password}
@@ -44,10 +58,15 @@ function Signup() {
           required
         />
         <label htmlFor="password">Password</label>
-
-        <button type="button" onClick={(event) => login(event)}>
+        <button type="button" onClick={(event) => createAccount(event)}>
           Signup
         </button>
+        <ToastContainer
+          autoClose={5000}
+          position="top-center"
+          draggable
+          pauseOnHover
+        />
       </form>
     </div>
   );
