@@ -14,7 +14,11 @@ const { checkUser } = require("./services/jwt");
 
 // Route public
 router.get("/videos", videosControllers.browse); // Récupère All
-router.get("/videos/:id", videosControllers.read); // Récupère par id
+router.get("/videos/:id", videosControllers.read);
+router.post("/admin/videos/add", videosControllers.add);
+router.put("/admin/videos/:id", videosControllers.edit);
+router.delete("/admin/videos/:id", videosControllers.destroy); // Publier All
+// router.put("/videos/:id", videosControllers.edit); // Mettre a jour by Id // Récupère par id
 
 router.get("/teams", teamsControllers.browse);
 router.get("/teams/:id", teamsControllers.read);

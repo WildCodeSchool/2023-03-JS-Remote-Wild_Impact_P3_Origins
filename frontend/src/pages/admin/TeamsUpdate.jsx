@@ -1,45 +1,47 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-function TeamsAdd() {
-  const [teams, setTeams] = useState({
+function TeamsUpdate() {
+  const { id } = useParams();
+  const [team, setTeam] = useState({
+    id: null,
     name: "",
     acronym: "",
     src: "",
     alt: "",
   });
 
-  const getTeams = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/teams`)
+  const getTeam = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teams/${id}`)
       .then((res) => res.json())
-      .then((data) => setTeams(data))
+      .then((data) => setTeam(data))
       .catch((err) => console.error(err));
   };
 
   const handleTeam = (name, value) => {
-    setTeams({ ...teams, [name]: value });
+    setTeam({ ...team, [name]: value });
   };
 
-  const postTeams = (event) => {
-    event.preventDefault();
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/teams`, {
-      method: "POST",
-      body: JSON.stringify(teams),
+  const updateTeam = (e) => {
+    e.preventDefault();
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teams/${team.id}`, {
+      method: "PUT",
+      body: JSON.stringify(team),
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
       .then((res) => res.json())
-      .then((json) => console.info(json))
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getTeams();
+    getTeam();
   }, []);
 
   return (
-    <form onSubmit={(event) => postTeams(event)}>
+    <form onSubmit={updateTeam}>
       <label>
         Name
         <input
@@ -48,7 +50,7 @@ function TeamsAdd() {
           minLength={1}
           maxLength={255}
           name="name"
-          value={teams.name}
+          value={team.name}
           onChange={(event) =>
             handleTeam(event.target.name, event.target.value)
           }
@@ -63,7 +65,7 @@ function TeamsAdd() {
           minLength={1}
           maxLength={255}
           name="acronym"
-          value={teams.acronym}
+          value={team.acronym}
           onChange={(event) =>
             handleTeam(event.target.name, event.target.value)
           }
@@ -78,7 +80,7 @@ function TeamsAdd() {
           minLength={10}
           maxLength={255}
           name="src"
-          value={teams.src}
+          value={team.src}
           onChange={(event) =>
             handleTeam(event.target.name, event.target.value)
           }
@@ -93,15 +95,16 @@ function TeamsAdd() {
           minLength={1}
           maxLength={255}
           name="alt"
-          value={teams.alt}
+          value={team.alt}
           onChange={(event) =>
             handleTeam(event.target.name, event.target.value)
           }
         />
       </label>
-      <button type="submit">Ajouter</button>
+
+      <button type="submit">Modifier</button>
     </form>
   );
 }
 
-export default TeamsAdd;
+export default TeamsUpdate;
