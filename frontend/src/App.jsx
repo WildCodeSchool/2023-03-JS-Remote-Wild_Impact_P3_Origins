@@ -15,8 +15,6 @@ import Signup from "./pages/user/Signup";
 import Signin from "./pages/user/Signin";
 import TeamsUpdate from "./pages/admin/TeamsUpdate";
 import TeamsAdd from "./pages/admin/TeamsAdd";
-import Profil from "./pages/admin/Profil";
-import Signup from "./pages/user/Signup";
 import FormAddVideo from "./pages/admin/FormAddVideo";
 
 function App() {
