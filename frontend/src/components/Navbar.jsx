@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCurrentUser } from "../contexts/AuthContexts";
 
 function Navbar() {
+  const { user } = useCurrentUser();
+
   return (
     <div className="navbar-container">
       <div className="cont-logo">
@@ -24,6 +27,14 @@ function Navbar() {
               Jeux
             </Link>
           </li>
+
+          {user.connected && (
+            <li className="menu-item">
+              <Link to="/profil" className="menu-item">
+                Profil
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

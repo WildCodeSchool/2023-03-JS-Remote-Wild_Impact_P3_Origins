@@ -34,7 +34,11 @@ const updateData = (url, body) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => res.json())
+    .then(async (res) =>
+      res.status === 204
+        ? { status: res.status }
+        : { data: await res.json(), status: res.status }
+    )
     .catch((err) => console.error(err));
 };
 
