@@ -1,32 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { TfiGame, TfiHeadphoneAlt, TfiDesktop, TfiHome } from "react-icons/tfi";
+import logoGamer from "../assets/logo-white.png";
 
 function Navbar() {
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
-    <div className="navbar-container">
-      <div className="cont-logo">
-        <h1 className="menu-logo">Origin's digital</h1>
+    <nav className="nav">
+      <div className="nav-container">
+        <div className="navbar">
+          <div className="logo">
+            <img
+              className="main-picture"
+              src={logoGamer}
+              alt="logoGamer "
+              width="30%"
+            />
+            <h1> Esport</h1>
+          </div>
+          <button
+            className="menu-toggle"
+            onClick={() => setNavOpen(!navOpen)}
+            type="button"
+          >
+            <div className={navOpen ? "hamBox hamBoxOpen" : "hamBox"}>
+              <span className={navOpen ? "lineTop spin" : "lineTop"} />
+              <span className={navOpen ? "lineMiddle spin" : "lineMiddle"} />
+              <span className={navOpen ? "lineBottom spin" : "lineBottom"} />
+            </div>
+          </button>
+        </div>
       </div>
-      <nav className="nav-container">
-        <ul className="menu">
-          <li className="menu-item">
-            <Link to="/" className="menu-item">
-              Home
+      <div
+        className="nav-overlay"
+        style={{
+          top: navOpen ? "0" : "-100%",
+          transitionDelay: navOpen ? "0.1s" : "0s",
+        }}
+      >
+        <ul className="nav-links">
+          <li className="nav-item">
+            <Link
+              to="/"
+              className="nav-link"
+              onClick={() => setNavOpen(!navOpen)}
+              style={{
+                top: navOpen ? "0" : "40px",
+                transitionDelay: navOpen ? "0.1s" : "0s",
+              }}
+            >
+              <TfiHome /> Home
             </Link>
+            <div className="nav-item-wrapper" />
           </li>
-          <li className="menu-item">
-            <Link to="/videos" className="menu-item">
-              Videos
+          <li className="nav-item">
+            <Link
+              to="/games"
+              className="nav-link"
+              onClick={() => setNavOpen(!navOpen)}
+              style={{
+                top: navOpen ? "0" : "70px",
+                transitionDelay: navOpen ? "0.2s" : "0s",
+              }}
+            >
+              <TfiGame /> Jeux
             </Link>
+            <div className="nav-item-wrapper" />
           </li>
-          <li className="menu-item">
-            <Link to="/games" className="menu-item">
-              Jeux
+          <li className="nav-item">
+            <Link
+              to="/teams"
+              className="nav-link"
+              onClick={() => setNavOpen(!navOpen)}
+              style={{
+                top: navOpen ? "0" : "70px",
+                transitionDelay: navOpen ? "0.3s" : "0s",
+              }}
+            >
+              <TfiHeadphoneAlt /> Equipes
             </Link>
+            <div className="nav-item-wrapper" />
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/videos"
+              className="nav-link"
+              onClick={() => setNavOpen(!navOpen)}
+              style={{
+                top: navOpen ? "0" : "70px",
+                transitionDelay: navOpen ? "0.4s" : "0s",
+              }}
+            >
+              <TfiDesktop /> Videos
+            </Link>
+            <div className="nav-item-wrapper" />
           </li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 
