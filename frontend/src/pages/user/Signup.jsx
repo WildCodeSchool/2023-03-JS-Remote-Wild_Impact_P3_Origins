@@ -8,6 +8,7 @@ function Signup() {
   const [userSignup, setUserSignup] = useState({
     email: "",
     password: "",
+    passwordConfirmation: "",
   });
 
   const navigate = useNavigate();
@@ -21,27 +22,38 @@ function Signup() {
       toast.success(signup.data.msg);
       setTimeout(() => {
         navigate("/");
-      }, 10000);
+      }, 5000);
     } else if (signup.status === 409) {
       toast.info(signup.data.msg);
     } else {
-      toast.error(signup.data.msg);
+      toast.error(
+        "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
+      );
     }
   };
 
   const createAccount = async (event) => {
     event.preventDefault();
+
+    if (userSignup.password !== userSignup.passwordConfirmation) {
+      toast.error("Les mots de passe ne correspondent pas.");
+      return;
+    }
+    const { passwordConfirmation, ...userData } = userSignup;
+
     try {
-      const signup = await connexion.post("/signup", userSignup);
+      const signup = await connexion.post("/signup", userData);
       notify(signup);
     } catch (err) {
-      console.error(err);
+      toast.error(
+        "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
+      );
     }
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={createAccount}>
         <input
           type="email"
           value={userSignup.email}
@@ -58,9 +70,17 @@ function Signup() {
           required
         />
         <label htmlFor="password">Password</label>
-        <button type="button" onClick={(event) => createAccount(event)}>
-          Signup
-        </button>
+        <input
+          type="password"
+          value={userSignup.passwordConfirmation}
+          onChange={(event) => handleUser(event)}
+          name="passwordConfirmation"
+          required
+        />
+        <label htmlFor="passwordConfirmation">Confirmer le mot de passe</label>
+
+        <button type="submit">Signup</button>
+
         <ToastContainer
           autoClose={5000}
           position="top-center"
