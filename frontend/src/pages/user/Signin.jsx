@@ -54,7 +54,7 @@ function Signin() {
       }
     } catch (err) {
       toast.error(
-        "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
+        "Une erreur s'est produite. Veuillez réessayer dans quelques instants"
       );
     }
   };
