@@ -30,7 +30,7 @@
 }
 
 .navbar button {
-  cursor: ponter;
+  cursor: pointer;
   background-color: transparent;
   border: none;
   z-index: 4;
@@ -43,7 +43,7 @@
   left: 0;
   width: 100%;
   height: 15vh;
-  overflow: hiddden;
+  overflow: hidden;
   padding: 2rem;
   transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
