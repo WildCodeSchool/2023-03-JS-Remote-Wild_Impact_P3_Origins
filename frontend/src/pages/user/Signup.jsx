@@ -27,7 +27,7 @@ function Signup() {
       toast.info(signup.data.msg);
     } else {
       toast.error(
-        "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
+        "Une erreur s'est produite. Veuillez réessayer dans quelques instants"
       );
     }
   };
