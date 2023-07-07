@@ -8,7 +8,7 @@ const profilsControllers = require("./controllers/profilsControllers");
 const gamesControllers = require("./controllers/gamesControllers");
 const authControllers = require("./controllers/authControllers");
 
-const { checkUserData } = require("./services/checkUserData");
+const { checkUserData, checkUpdateData } = require("./services/checkUserData");
 const { hashPassword } = require("./services/auth");
 const { checkUser } = require("./services/jwt");
 
@@ -31,7 +31,7 @@ router.post("/signin", checkUserData, authControllers.signin);
 
 router.get("/profils", profilsControllers.browse);
 router.get("/profils/:id", profilsControllers.read);
-router.put("/profils/:id", profilsControllers.edit);
+router.put("/profils", checkUpdateData, profilsControllers.edit);
 
 // Route privée avec JWT
 router.use(checkUser);

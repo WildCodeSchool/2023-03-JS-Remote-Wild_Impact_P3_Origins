@@ -38,6 +38,7 @@ function Signin() {
           role: signin.data.role,
           id: signin.data.id,
           firstname: signin.data.firstname,
+          connected: true,
         };
         setUser(profil);
 

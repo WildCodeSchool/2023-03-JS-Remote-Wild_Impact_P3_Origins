@@ -15,6 +15,19 @@ const authSchema = () => {
       .required(),
   });
 };
+const updateSchema = () => {
+  return joi.object({
+    email: joi.string().email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com"] },
+    }),
+
+    firstname: joi.string().alphanum(),
+    lastname: joi.string().alphanum(),
+    src: joi.string(),
+    id: joi.number().integer(),
+  });
+};
 
 const checkUserData = (req, res, next) => {
   const { error } = authSchema("required").validate(req.body, {
@@ -38,6 +51,23 @@ const checkUserData = (req, res, next) => {
   }
 };
 
+const checkUpdateData = (req, res, next) => {
+  const { error } = updateSchema("required").validate(req.body, {
+    abortEarly: false,
+  });
+
+  if (error) {
+    console.error(error.details[0]);
+
+    if (error.details[0].type === "string.email") {
+      res.status(400).json({ msg: "L'email est invalide" });
+    }
+  } else {
+    next();
+  }
+};
+
 module.exports = {
   checkUserData,
+  checkUpdateData,
 };
