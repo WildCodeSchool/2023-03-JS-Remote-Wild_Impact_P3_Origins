@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { TfiGame, TfiHeadphoneAlt, TfiDesktop, TfiHome } from "react-icons/tfi";
 import logoGamer from "../assets/logo-white.png";
+import { useCurrentUser } from "../contexts/AuthContexts";
 
 function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
+  const { user } = useCurrentUser();
 
   return (
     <nav className="nav">
@@ -96,6 +98,14 @@ function Navbar() {
             </Link>
             <div className="nav-item-wrapper" />
           </li>
+
+          {user.connected && (
+            <li className="menu-item">
+              <Link to="/profil" className="menu-item">
+                Profil
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

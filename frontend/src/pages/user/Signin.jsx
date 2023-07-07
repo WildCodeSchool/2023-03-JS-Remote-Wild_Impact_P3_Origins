@@ -38,6 +38,7 @@ function Signin() {
           role: signin.data.role,
           id: signin.data.id,
           firstname: signin.data.firstname,
+          connected: true,
         };
         setUser(profil);
 
@@ -52,13 +53,15 @@ function Signin() {
         }
       }
     } catch (err) {
-      console.error(err);
+      toast.error(
+        "Une erreur s'est produite. Veuillez réessayer dans quelques instants"
+      );
     }
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={login}>
         <input
           type="email"
           value={userSignin.email}
@@ -77,9 +80,7 @@ function Signin() {
         />
         <label htmlFor="password">Password</label>
 
-        <button type="button" onClick={(event) => login(event)}>
-          Signin
-        </button>
+        <button type="submit">Signin</button>
 
         <ToastContainer
           autoClose={2000}
