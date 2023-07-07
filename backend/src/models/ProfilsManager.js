@@ -18,9 +18,16 @@ class ProfilsManager extends AbstractManager {
     );
   }
 
+  insertProfils(userId) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (user_id) values (?)`,
+      [userId]
+    );
+  }
+
   update(firstname, lastname, src, id) {
     return this.database.query(
-      `update ${this.table} set firstname = ?, lastname = ? , src = ? where id = ?`,
+      `update ${this.table} set firstname = ?, lastname = ?, src = ? where id = ?`,
       [firstname, lastname, src, id]
     );
   }

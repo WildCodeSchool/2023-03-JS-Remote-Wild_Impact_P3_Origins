@@ -30,7 +30,6 @@ const read = (req, res) => {
 
 const edit = async (req, res) => {
   const profils = req.body;
-  profils.id = parseInt(req.params.id, 10);
 
   try {
     await models.users.update(profils.email, profils.id);
@@ -40,10 +39,13 @@ const edit = async (req, res) => {
       profils.src,
       profils.id
     );
-    res.Status(204).send("Votre modifification a bien été enregistré");
+    res.sendStatus(204);
   } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
+    if (error.code === "ER_DUP_ENTRY") {
+      res.status(409).json({ msg: "Email déjà existant." });
+    } else {
+      res.sendStatus(500);
+    }
   }
 };
 

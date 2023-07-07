@@ -12,10 +12,10 @@ class AuthManager extends AbstractManager {
     );
   }
 
-  insertProfils(profil, userId) {
+  findUser(email) {
     return this.database.query(
-      `INSERT INTO profils (firstname, lastname, src, user_id) values (?, ?, ?, ?)`,
-      [profil.firstname, profil.lastname, profil.src, userId]
+      `select password, role, id from ${this.table} where email = ?`,
+      [email]
     );
   }
 }

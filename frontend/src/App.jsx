@@ -5,15 +5,17 @@ import Homepage from "./pages/Homepage";
 import Games from "./pages/admin/Games";
 import Gamespage from "./pages/Gamespage";
 import Videospage from "./pages/Videospage";
+import ProfilPage from "./pages/user/ProfilPage";
 import "./scss/App.scss";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Profils from "./pages/admin/Profils";
 import Teams from "./pages/admin/Teams";
-import TeamsUpdate from "./pages/admin/TeamsUpdate";
-import TeamsAdd from "./pages/admin/TeamsAdd";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
+import Signin from "./pages/user/Signin";
+import TeamsUpdate from "./pages/admin/TeamsUpdate";
+import TeamsAdd from "./pages/admin/TeamsAdd";
 import FormAddVideo from "./pages/admin/FormAddVideo";
 
 function App() {
@@ -23,8 +25,10 @@ function App() {
         <Route path="/" element={<UserLayout />}>
           <Route path="" element={<Homepage />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="signin" element={<Signin />} />
           <Route path="games" element={<Gamespage />} />
           <Route path="videos" element={<Videospage />} />
+          <Route path="profil" element={<ProfilPage />} />
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />}>
