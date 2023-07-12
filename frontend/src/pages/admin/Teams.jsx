@@ -12,17 +12,13 @@ const teamModel = {
 };
 
 function Teams() {
-  const [team, setTeam] = useState(teamModel);
   const [teams, setTeams] = useState([]);
-  // const [teamAdd, setTeamAdd] = useState(teamModel);
-  // const [teamToUpdate, setTeamToUpdate] = useState([]);
+  const [team, setTeam] = useState(teamModel);
 
   const getTeams = async () => {
-    const teamsData = await connexion.get("/teams");
     try {
-      if (teamsData) {
-        setTeams(teamsData);
-      }
+      const teamsData = await connexion.get("/teams");
+      setTeams(teamsData);
     } catch (error) {
       toast.error("Une erreur est survenue");
     }
@@ -38,38 +34,62 @@ function Teams() {
     }
   };
 
-  // const updateTeam = async () => {
-  //   try {
-  //     const teamData = connexion.get(`/teams`);
-  //     await connexion.put(`/teams/${team.id}`, teamToUpdate);
-  //     setTeamToUpdate(teamData);
-  //   } catch (error) {
-  //     toast.error("Une erreur est survenue");
-  //   }
-  // };
+  const updateTeamState = (id) => {
+    if (id === 0) {
+      setTeam(teamModel);
+    } else {
+      setTeam(teams.find((tm) => tm.id === +id));
+    }
+  };
 
-  const deleteTeam = (event) => {
+  const updateTeam = async (event) => {
     event.preventDefault();
     try {
-      const teamData = connexion.delete(`/teams/${team.id}`, team);
-      setTeam(teamData);
+      await connexion.put(`/teams/${team.id}`, team);
+      setTeam(teamModel);
     } catch (error) {
       toast.error("Une erreur est survenue");
     }
   };
 
-  useEffect(() => {
-    // getTeam();
-    getTeams();
-  }, []);
+  const deleteTeam = async (event) => {
+    event.preventDefault();
+    try {
+      await connexion.delete(`/teams/${team.id}`);
+      setTeam(teamModel);
+      getTeams();
+    } catch (error) {
+      toast.error("Une erreur est survenue");
+    }
+  };
 
   const handleTeam = (name, value) => {
     setTeam({ ...team, [name]: value });
   };
-  console.info(teams);
+
+
+  useEffect(() => {
+    getTeams();
+  }, []);
 
   return (
     <div className="Bloc1">
+      <div className="Robin">
+        <label htmlFor="">
+          Choisir une team
+          <select
+            onChange={(event) => updateTeamState(+event.target.value)}
+          >
+            <option value={0}>Rafraichir</option>
+            {teams.map((tm) => (
+              <option key={tm.id} value={tm.id}>{tm.name}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div className="Lucas">
+        <img src={team.src} />
+      </div>
       <form onSubmit={(event) => postTeam(event)}>
         <label>
           Name
@@ -133,9 +153,14 @@ function Teams() {
         {!team.id && <button type="submit">Ajouter</button>}
       </form>
       {team.id && (
-        <button type="button" onClick={(event) => deleteTeam(event)}>
-          Supprimer
-        </button>
+        <>
+          <button type="button" onClick={(event) => deleteTeam(event)}>
+            Supprimer
+          </button>
+          <button type="button" onClick={(event) => updateTeam(event)}>
+            Modifier
+          </button>
+        </>
       )}
       {/* {teams.map((team) => (
         <TeamCard key={team.id} team={team} />
