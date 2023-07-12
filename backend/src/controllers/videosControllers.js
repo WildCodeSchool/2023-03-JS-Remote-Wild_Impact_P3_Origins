@@ -30,10 +30,10 @@ const read = (req, res) => {
 };
 
 const add = (req, res) => {
-  const videos = req.body;
-
+  const video = req.body;
+  const gameId = parseInt(video.game_id, 10);
   models.videos
-    .insert(videos)
+    .insert(video, gameId)
     .then(([result]) => {
       res.location(`/videos/add/${result.insertId}`).sendStatus(201);
     })
