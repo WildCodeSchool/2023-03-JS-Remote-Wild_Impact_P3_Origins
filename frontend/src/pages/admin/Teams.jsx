@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer, Flip } from "react-toastify";
 import connexion from "../../services/connexion";
-// import TeamCard from "../../components/TeamCard";
 import "react-toastify/dist/ReactToastify.css";
 
 const teamModel = {
@@ -51,8 +50,13 @@ function Teams() {
 
   const deleteTeam = (event) => {
     event.preventDefault();
-    console.log("suppression")
-  }
+    try {
+      const teamData = connexion.delete(`/teams/${team.id}`, team);
+      setTeam(teamData);
+    } catch (error) {
+      toast.error("Une erreur est survenue");
+    }
+  };
 
   useEffect(() => {
     // getTeam();
@@ -62,7 +66,7 @@ function Teams() {
   const handleTeam = (name, value) => {
     setTeam({ ...team, [name]: value });
   };
-  console.info(team)
+  console.info(teams);
 
   return (
     <div className="Bloc1">
@@ -128,7 +132,11 @@ function Teams() {
         </label>
         {!team.id && <button type="submit">Ajouter</button>}
       </form>
-      {team.id && <button type="button" onClick={(event) => deleteTeam(event)}>Supprimer</button>}
+      {team.id && (
+        <button type="button" onClick={(event) => deleteTeam(event)}>
+          Supprimer
+        </button>
+      )}
       {/* {teams.map((team) => (
         <TeamCard key={team.id} team={team} />
       ))} */}
