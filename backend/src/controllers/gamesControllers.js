@@ -55,7 +55,7 @@ const edit = (req, res) => {
     .update(games)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(400).send({ msg: "Modification non effectuée" });
+        res.status(400).json({ msg: "Modification non effectuée" });
       } else {
         res.status(201).json({ msg: "Votre modification a été effectuée" });
       }
@@ -73,9 +73,9 @@ const destroy = (req, res) => {
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.sendStatus(404);
+        res.status(400).json({ msg: "Impossible de supprimer le jeu." });
       } else {
-        res.status(200).send("La suppression a été effectuée");
+        res.status(200).json({ msg: "La suppression a été effectuée" });
       }
     })
     .catch((err) => {

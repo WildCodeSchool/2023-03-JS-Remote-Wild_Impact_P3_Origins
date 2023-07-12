@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast, ToastContainer, Flip } from "react-toastify";
 import connexion from "../../services/connexion";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 function OneGames() {
   const params = useParams();
   const [gameData, setGameData] = useState([]);
+  const navigate = useNavigate();
 
   const getGames = async () => {
     try {
@@ -25,11 +26,11 @@ function OneGames() {
     setGameData({ ...gameData, [event.target.name]: event.target.value });
   };
 
-  const notify = (update) => {
-    if (update.status === 201) {
-      toast.success(update.data.msg);
-    } else if (update.status === 400) {
-      toast.error(update.data.msg);
+  const notify = (notif) => {
+    if (notif.status === 201) {
+      toast.success(notif.data.msg);
+    } else if (notif.status === 400) {
+      toast.error(notif.data.msg);
     }
   };
 
@@ -38,6 +39,20 @@ function OneGames() {
     try {
       const update = await connexion.put(`/games/${params.id}`, gameData);
       notify(update);
+    } catch (err) {
+      toast.error(
+        "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
+      );
+    }
+  };
+
+  const deleteGame = async () => {
+    try {
+      const destroy = await connexion.delete(`/games/${params.id}`, gameData);
+      toast.info(destroy.msg);
+      setTimeout(() => {
+        navigate("/admin/games");
+      }, 2000);
     } catch (err) {
       toast.error(
         "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
@@ -101,6 +116,10 @@ function OneGames() {
 
         <button type="submit">Modifier le jeu</button>
       </form>
+
+      <button type="button" onClick={() => deleteGame()}>
+        Supprimer
+      </button>
 
       <ToastContainer
         autoClose={2000}
