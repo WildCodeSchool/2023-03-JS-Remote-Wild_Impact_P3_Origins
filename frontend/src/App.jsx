@@ -36,9 +36,7 @@ function App() {
           <Route path="games/:id" element={<AdminDashboard />} />
           <Route path="games/add" element={<AdminDashboard />} />
 
-          <Route path="videos" element={<AdminDashboard />} />
-          <Route path="videos/:id" element={<AdminDashboard />} />
-          <Route path="videos/add" element={<FormAddVideo />} />
+          <Route path="videos" element={<FormAddVideo />} />
 
           <Route path="sliders" element={<AdminDashboard />} />
           <Route path="grilles" element={<AdminDashboard />} />
