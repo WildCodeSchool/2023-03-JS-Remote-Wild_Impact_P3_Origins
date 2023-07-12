@@ -47,15 +47,16 @@ const add = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const teams = req.body;
-  teams.id = parseInt(req.params.id, 10);
-  models.teams
-    .update(teams)
+  const video = req.body;
+  const videoId = parseInt(video.id, 10);
+
+  models.videos
+    .update(video, videoId)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(404).send("Modification non effetuée");
+        res.status(404).json({ msg: "Modification non effetuée" });
       } else {
-        res.status(201).send("Votre modification a été effectué");
+        res.status(201).json({ msg: "Votre modification a été effectué" });
       }
     })
     .catch((err) => {
