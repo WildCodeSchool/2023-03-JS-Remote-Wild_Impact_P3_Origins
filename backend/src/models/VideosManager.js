@@ -16,10 +16,10 @@ class VideosManager extends AbstractManager {
     ]);
   }
 
-  insert(video) {
+  insert(video, gameId) {
     return this.database.query(
-      `insert into ${this.table} (url,titre,description,release_date ) values(?, ?, ?, ?)`,
-      [video.url, video.titre, video.description, video.release_date]
+      `insert into ${this.table} (url, titre, description, game_id, release_date) values(?, ?, ?, ?, NOW())`,
+      [video.url, video.title, video.description, gameId]
     );
   }
 
