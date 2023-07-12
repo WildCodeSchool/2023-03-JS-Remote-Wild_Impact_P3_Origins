@@ -87,7 +87,7 @@ function Teams() {
         </label>
       </div>
       <div className="Lucas">
-        <img src={team.src} />
+        <img src={team.src} alt="imagerie" />
       </div>
       <form onSubmit={(event) => postTeam(event)}>
         <label>
