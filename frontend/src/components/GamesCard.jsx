@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function GamesCard({ game }) {
   return (
-    <div className="game-item" key={game.id}>
-      <h2>{game.label}</h2>
-      <img src={game.src} alt={game.alt} />
-    </div>
+    <Link to={`${game.id}`}>
+      <div className="game-item" key={game.id}>
+        <img src={game.src} alt={game.alt} />
+      </div>
+    </Link>
   );
 }
 
 GamesCard.propTypes = {
   game: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    // name: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,

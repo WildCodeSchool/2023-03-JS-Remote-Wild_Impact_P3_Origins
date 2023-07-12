@@ -44,7 +44,7 @@ router.put("/teams/:id", teamsControllers.edit);
 router.delete("/teams/:id", teamsControllers.destroy);
 
 router.post("/games", checkGameData, gamesControllers.add);
-router.put("/games/:id", gamesControllers.edit);
+router.put("/games/:id", checkGameData, gamesControllers.edit);
 router.delete("/games/:id", gamesControllers.destroy);
 
 module.exports = router;

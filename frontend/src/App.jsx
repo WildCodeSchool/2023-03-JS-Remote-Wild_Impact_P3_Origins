@@ -3,6 +3,7 @@ import UserLayout from "./layout/UserLayout";
 import AdminLayout from "./layout/AdminLayout";
 import Homepage from "./pages/Homepage";
 import Games from "./pages/admin/Games";
+import OneGames from "./pages/admin/OneGames";
 import Gamespage from "./pages/Gamespage";
 import Videospage from "./pages/Videospage";
 import ProfilPage from "./pages/user/ProfilPage";
@@ -33,7 +34,7 @@ function App() {
           <Route path="" element={<AdminDashboard />} />
 
           <Route path="games" element={<Games />} />
-          <Route path="games/:id" element={<AdminDashboard />} />
+          <Route path="games/:id" element={<OneGames />} />
           <Route path="games/add" element={<AdminDashboard />} />
 
           <Route path="videos" element={<AdminDashboard />} />

@@ -35,11 +35,11 @@ function Games() {
     setAddGames({ ...addGames, [event.target.name]: event.target.value });
   };
 
-  const notify = (signin) => {
-    if (signin.status === 201) {
+  const notify = (pushGames) => {
+    if (pushGames.status === 201) {
       toast.success("Le jeu a été ajouté");
-    } else if (signin.status === 400) {
-      toast.error(signin.data.msg);
+    } else if (pushGames.status === 400) {
+      toast.error(pushGames.data.msg);
     }
   };
 

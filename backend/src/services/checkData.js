@@ -31,6 +31,7 @@ const updateSchema = () => {
 
 const gamesSchema = () => {
   return joi.object({
+    id: joi.number(),
     label: joi.string().alphanum(),
     acronyme: joi.string().alphanum(),
     src: joi.string(),

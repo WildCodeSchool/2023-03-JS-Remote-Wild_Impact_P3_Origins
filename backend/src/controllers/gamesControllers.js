@@ -55,9 +55,9 @@ const edit = (req, res) => {
     .update(games)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(404).send("Modification non effectuée");
+        res.status(400).send({ msg: "Modification non effectuée" });
       } else {
-        res.status(201).send("Votre modification a été effectuée");
+        res.status(201).json({ msg: "Votre modification a été effectuée" });
       }
     })
     .catch((err) => {
