@@ -11,8 +11,8 @@ const videoModel = {
 
 function FormAddVideo() {
   const [games, setGames] = useState([]);
-  const [video, setVideo] = useState(videoModel);
   const [videos, setVideos] = useState([]);
+  const [video, setVideo] = useState(videoModel);
 
   const getGames = async () => {
     try {
@@ -24,11 +24,9 @@ function FormAddVideo() {
   };
 
   const getVideos = async () => {
-    const videosData = await connexion.get("/videos");
     try {
-      if (videosData) {
-        setVideos(videosData);
-      }
+      const videosData = await connexion.get("/videos");
+      setVideos(videosData);
     } catch (error) {
       console.error(error);
     }
@@ -39,6 +37,7 @@ function FormAddVideo() {
     try {
       const videoPost = await connexion.post("/videos", video);
       setVideo(videoPost.data);
+      getVideos();
     } catch (error) {
       console.error(error);
     }
@@ -54,13 +53,25 @@ function FormAddVideo() {
     }
   };
 
+  const updateVideo = async (event) => {
+    event.preventDefault();
+    try {
+      console.info(video);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleVideo = (event) => {
     setVideo({ ...video, [event.target.name]: event.target.value });
   };
 
   const updateVideoState = (id) => {
-    setVideo(videos.find((vid) => vid.id === id));
-    console.info(video);
+    if (id === "") {
+      setVideo(videoModel);
+    } else {
+      setVideo(videos.find((vid) => vid.id === +id));
+    }
   };
 
   useEffect(() => {
@@ -71,7 +82,7 @@ function FormAddVideo() {
   return (
     <div className="formContainer">
       <h2>Liste de mes vidéos</h2>
-      <select onChange={(event) => updateVideoState(+event.target.value)}>
+      <select onChange={(event) => updateVideoState(event.target.value)}>
         <option value="">Choisir une vidéo</option>
         {videos.map((vid) => (
           <option key={vid.id} value={vid.id}>
@@ -120,7 +131,11 @@ function FormAddVideo() {
           />
         </label>
         <h2>Liste de mes jeux</h2>
-        <select name="game_id" onChange={(event) => handleVideo(event)}>
+        <select
+          name="game_id"
+          onChange={(event) => handleVideo(event)}
+          value={video.game_id}
+        >
           <option value="">Choisir le jeu attribué</option>
           {games.map((game) => (
             <option value={game.id}>{game.label}</option>
@@ -133,9 +148,14 @@ function FormAddVideo() {
         )}
       </form>
       {video.id && (
-        <button type="button" onClick={(event) => deleteVideo(event)}>
-          Supprimer
-        </button>
+        <>
+          <button type="button" onClick={(event) => deleteVideo(event)}>
+            Supprimer
+          </button>
+          <button type="button" onClick={(event) => updateVideo(event)}>
+            Modifier
+          </button>
+        </>
       )}
     </div>
   );
