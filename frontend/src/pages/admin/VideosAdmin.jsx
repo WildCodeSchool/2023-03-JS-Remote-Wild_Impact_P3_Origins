@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import connexion from "../../services/connexion";
 
 const videoModel = {
-  id: "",
+  id: null,
   url: "",
   title: "",
   description: "",
@@ -11,7 +11,7 @@ const videoModel = {
 
 function FormAddVideo() {
   const [games, setGames] = useState([]);
-  const [videoToAdd, setVideoToAdd] = useState(videoModel);
+  const [video, setVideo] = useState(videoModel);
 
   const getGames = async () => {
     try {
@@ -25,21 +25,30 @@ function FormAddVideo() {
   const postVideo = async (event) => {
     event.preventDefault();
     try {
-      await connexion.post("/videos", videoToAdd);
+      const videoPost = await connexion.post("/videos", video);
+      setVideo(videoPost.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteVideo = async (event) => {
+    event.preventDefault();
+    try {
+      await connexion.delete(`/videos/${video.id}`);
+      setVideo(videoModel);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleVideo = (event) => {
-    setVideoToAdd({ ...videoToAdd, [event.target.name]: event.target.value });
+    setVideo({ ...video, [event.target.name]: event.target.value });
   };
 
   useEffect(() => {
     getGames();
   }, []);
-
-  console.info(videoToAdd);
 
   return (
     <div className="formContainer">
@@ -53,7 +62,7 @@ function FormAddVideo() {
             maxLength={255}
             name="url"
             onChange={(event) => handleVideo(event)}
-            value={videoToAdd.url}
+            value={video.url}
             required
           />
         </label>
@@ -66,7 +75,7 @@ function FormAddVideo() {
             maxLength={255}
             name="title"
             onChange={(event) => handleVideo(event)}
-            value={videoToAdd.title}
+            value={video.title}
           />
         </label>
 
@@ -79,20 +88,27 @@ function FormAddVideo() {
             maxLength={255}
             name="description"
             onChange={(event) => handleVideo(event)}
-            value={videoToAdd.description}
+            value={video.description}
           />
         </label>
-        <h2>Liste de mes vidéos</h2>
+        <h2>Liste de mes jeux</h2>
         <select name="game_id" onChange={(event) => handleVideo(event)}>
           <option value="">Choisir le jeu attribué</option>
           {games.map((game) => (
             <option value={game.id}>{game.label}</option>
           ))}
         </select>
-        <button type="submit" className="btn btn-secondary col-5 m-2">
-          Ajouter
-        </button>
+        {!video.id && (
+          <button type="submit" className="btn btn-secondary col-5 m-2">
+            Ajouter
+          </button>
+        )}
       </form>
+      {video.id && (
+        <button type="button" onClick={(event) => deleteVideo(event)}>
+          Supprimer
+        </button>
+      )}
     </div>
   );
 }
