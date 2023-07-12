@@ -47,7 +47,7 @@ function Sidebar() {
 
     {
       path: "/admin/games/add",
-      name: "Ajouter une jeux",
+      name: "Ajouter un jeu",
     },
     {
       path: "/admin/teams",
@@ -55,13 +55,13 @@ function Sidebar() {
       icon: <TfiCup />,
     },
     {
-      path: "/admin/games",
-      name: "Liste des jeux",
+      path: "/admin/teams",
+      name: "Liste des équipes",
     },
 
     {
-      path: "/admin/games/add",
-      name: "Ajouter une jeux",
+      path: "/admin/teams/add",
+      name: "Ajouter une équipe",
     },
     {
       path: "/admin/sliders",
