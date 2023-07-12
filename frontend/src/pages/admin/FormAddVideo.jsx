@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import connexion from "./connexion";
+import connexion from "../../services/connexion";
 
 const videoModel = {
   url: "",
@@ -30,7 +30,7 @@ function FormAddVideo() {
 
   const postVideo = async () => {
     try {
-      const videoData = await connexion.post("/videos/add", videoToAdd);
+      const videoData = await connexion.post("/videos", videoToAdd);
       setVideoToAdd(videoData);
       getVideos();
     } catch (error) {
