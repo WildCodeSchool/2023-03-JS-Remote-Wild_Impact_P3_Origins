@@ -11,7 +11,6 @@ const videoModel = {
 
 function FormAddVideo() {
   const [games, setGames] = useState([]);
-
   const [videoToAdd, setVideoToAdd] = useState(videoModel);
 
   const getGames = async () => {
@@ -45,7 +44,7 @@ function FormAddVideo() {
   return (
     <div className="formContainer">
       <h2>Ajouter une video</h2>
-      <form onSubmit={postVideo}>
+      <form onSubmit={(event) => postVideo(event)}>
         <label>
           url video
           <input
