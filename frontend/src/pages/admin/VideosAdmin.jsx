@@ -12,11 +12,23 @@ const videoModel = {
 function FormAddVideo() {
   const [games, setGames] = useState([]);
   const [video, setVideo] = useState(videoModel);
+  const [videos, setVideos] = useState([]);
 
   const getGames = async () => {
     try {
       const gamesData = await connexion.get("/games");
       setGames(gamesData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getVideos = async () => {
+    const videosData = await connexion.get("/videos");
+    try {
+      if (videosData) {
+        setVideos(videosData);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -46,12 +58,28 @@ function FormAddVideo() {
     setVideo({ ...video, [event.target.name]: event.target.value });
   };
 
+  const updateVideoState = (id) => {
+    setVideo(videos.find((vid) => vid.id === id));
+    console.info(video);
+  };
+
   useEffect(() => {
     getGames();
+    getVideos();
   }, []);
 
   return (
     <div className="formContainer">
+      <h2>Liste de mes vidéos</h2>
+      <select onChange={(event) => updateVideoState(+event.target.value)}>
+        <option value="">Choisir une vidéo</option>
+        {videos.map((vid) => (
+          <option key={vid.id} value={vid.id}>
+            {vid.title} {vid.description}
+          </option>
+        ))}
+      </select>
+
       <h2>Ajouter une video</h2>
       <form onSubmit={(event) => postVideo(event)}>
         <label>
