@@ -1,25 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-function GamesCard({ game }) {
+function GamesCard({ game, setGameModalIsOpen, setGameData }) {
+  const setDataGame = (gameData) => {
+    setGameModalIsOpen(true);
+    setGameData(gameData);
+  };
+
   return (
-    <Link to={`${game.id}`}>
-      <div className="game-item" key={game.id}>
-        <img src={game.src} alt={game.alt} />
-      </div>
-    </Link>
+    <div className="game-item">
+      <img src={game.src} alt={game.alt} />
+      <button type="button" onClick={() => setDataGame(game)}>
+        +
+      </button>
+    </div>
   );
 }
-
-GamesCard.propTypes = {
-  game: PropTypes.shape({
-    // name: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    label: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default GamesCard;

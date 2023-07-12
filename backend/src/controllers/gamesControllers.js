@@ -37,10 +37,7 @@ const add = (req, res) => {
       res
         .location(`/games/${result.insertId}`)
         .status(201)
-        .json({
-          id: result.insertId,
-          ...games,
-        });
+        .json({ msg: "Votre jeu a été ajouté" });
     })
     .catch((err) => {
       console.error(err);

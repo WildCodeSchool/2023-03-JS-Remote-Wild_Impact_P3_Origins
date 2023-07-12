@@ -32,7 +32,7 @@ const updateSchema = () => {
 const gamesSchema = () => {
   return joi.object({
     id: joi.number(),
-    label: joi.string().alphanum(),
+    label: joi.string(),
     acronyme: joi.string().alphanum(),
     src: joi.string(),
     alt: joi.string(),
