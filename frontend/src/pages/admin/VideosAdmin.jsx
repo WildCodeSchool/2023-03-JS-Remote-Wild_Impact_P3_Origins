@@ -48,6 +48,7 @@ function FormAddVideo() {
     try {
       await connexion.delete(`/videos/${video.id}`);
       setVideo(videoModel);
+      getVideos();
     } catch (error) {
       console.error(error);
     }
@@ -56,7 +57,8 @@ function FormAddVideo() {
   const updateVideo = async (event) => {
     event.preventDefault();
     try {
-      console.info(video);
+      await connexion.put(`/videos/${video.id}`, video);
+      getVideos();
     } catch (error) {
       console.error(error);
     }
