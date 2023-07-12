@@ -8,7 +8,11 @@ const profilsControllers = require("./controllers/profilsControllers");
 const gamesControllers = require("./controllers/gamesControllers");
 const authControllers = require("./controllers/authControllers");
 
-const { checkUserData, checkUpdateData } = require("./services/checkUserData");
+const {
+  checkUserData,
+  checkUpdateData,
+  checkGameData,
+} = require("./services/checkData");
 const { hashPassword } = require("./services/auth");
 const { checkUser } = require("./services/jwt");
 
@@ -39,7 +43,7 @@ router.post("/teams", teamsControllers.add);
 router.put("/teams/:id", teamsControllers.edit);
 router.delete("/teams/:id", teamsControllers.destroy);
 
-router.post("/games", gamesControllers.add);
+router.post("/games", checkGameData, gamesControllers.add);
 router.put("/games/:id", gamesControllers.edit);
 router.delete("/games/:id", gamesControllers.destroy);
 

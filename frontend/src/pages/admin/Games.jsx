@@ -9,7 +9,7 @@ function Games() {
   const [games, setGames] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [addGames, setAddGames] = useState({
-    name: "",
+    label: "",
     acronyme: "",
     src: "",
     alt: "",
@@ -35,9 +35,25 @@ function Games() {
     setAddGames({ ...addGames, [event.target.name]: event.target.value });
   };
 
-  const addGame = (event) => {
+  const notify = (signin) => {
+    if (signin.status === 201) {
+      toast.success("Le jeu a été ajouté");
+    } else if (signin.status === 400) {
+      toast.error(signin.data.msg);
+    }
+  };
+
+  const addGame = async (event) => {
     event.preventDefault();
-    console.info(addGames);
+    try {
+      const pushGames = await connexion.post("/games", addGames);
+      notify(pushGames);
+      getGames();
+    } catch (err) {
+      toast.error(
+        "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
+      );
+    }
   };
 
   return (
@@ -48,7 +64,7 @@ function Games() {
 
       <Modal
         isOpen={modalIsOpen}
-        className="my-modal-class"
+        className="Modal"
         onRequestClose={() => setModalIsOpen(false)}
       >
         <h2>Ajouter un jeu</h2>
@@ -58,13 +74,13 @@ function Games() {
 
         <form onSubmit={addGame}>
           <input
-            type="name"
-            value={addGames.name}
+            type="label"
+            value={addGames.label}
             onChange={(event) => handleUser(event)}
-            name="name"
+            name="label"
             required
           />
-          <label htmlFor="name">Nom</label>
+          <label htmlFor="label">Nom</label>
 
           <input
             type="acronyme"
