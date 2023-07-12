@@ -65,15 +65,13 @@ const edit = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  const teams = req.body;
-  teams.id = parseInt(req.params.id, 10);
-  models.teams
+  models.videos
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.status(201).send("Votre suppression à été effectué");
+        res.status(201).json({ msg: "Votre suppression à été effectué" });
       }
     })
     .catch((err) => {
