@@ -14,7 +14,7 @@ import Teams from "./pages/admin/Teams";
 import Profil from "./pages/admin/Profil";
 import Signup from "./pages/user/Signup";
 import Signin from "./pages/user/Signin";
-import FormAddVideo from "./pages/admin/FormAddVideo";
+import VideosAdmin from "./pages/admin/VideosAdmin";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path="games/:id" element={<AdminDashboard />} />
           <Route path="games/add" element={<AdminDashboard />} />
 
-          <Route path="videos" element={<FormAddVideo />} />
+          <Route path="videos" element={<VideosAdmin />} />
 
           <Route path="sliders" element={<AdminDashboard />} />
           <Route path="grilles" element={<AdminDashboard />} />
