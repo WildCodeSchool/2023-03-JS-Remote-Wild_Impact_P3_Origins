@@ -67,7 +67,6 @@ function Teams() {
     setTeam({ ...team, [name]: value });
   };
 
-
   useEffect(() => {
     getTeams();
   }, []);
@@ -77,12 +76,12 @@ function Teams() {
       <div className="Robin">
         <label htmlFor="">
           Choisir une team
-          <select
-            onChange={(event) => updateTeamState(+event.target.value)}
-          >
+          <select onChange={(event) => updateTeamState(+event.target.value)}>
             <option value={0}>Rafraichir</option>
             {teams.map((tm) => (
-              <option key={tm.id} value={tm.id}>{tm.name}</option>
+              <option key={tm.id} value={tm.id}>
+                {tm.name}
+              </option>
             ))}
           </select>
         </label>
