@@ -27,6 +27,7 @@ CREATE TABLE
         `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `email` VARCHAR(255) UNIQUE,
         `password` LONGTEXT,
+        `is_premium` BOOLEAN DEFAULT FALSE,
         `role` VARCHAR(255) DEFAULT 'user'
     );
 
@@ -57,6 +58,7 @@ CREATE TABLE
         `description` LONGTEXT,
         `release_date` DATE,
         `game_id` INT,
+        `premium` BOOLEAN DEFAULT FALSE,
         CONSTRAINT fk_game_id FOREIGN KEY (game_id) REFERENCES games(id)
     );
 

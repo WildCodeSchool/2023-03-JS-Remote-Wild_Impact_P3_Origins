@@ -25,7 +25,6 @@ const signin = async (req, res) => {
     (await checkPassword(user[0][0].password, req.body.password))
   ) {
     const token = createJwt({ email: req.body.email, role: user[0][0].role });
-
     res
       .status(200)
       .cookie("ott_token", token, {
@@ -35,6 +34,7 @@ const signin = async (req, res) => {
       .json({
         role: user[0][0].role,
         id: user[0][0].id,
+        premium: user[0][0].is_premium,
       });
   } else {
     res.sendStatus(401);
