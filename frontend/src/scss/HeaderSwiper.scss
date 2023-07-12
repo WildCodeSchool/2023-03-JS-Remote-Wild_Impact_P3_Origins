@@ -3,7 +3,6 @@
   z-index: 1;
 }
 
-
 .react-player {
   width: 80%;
   margin: auto;
@@ -11,7 +10,6 @@
   border-radius: 100px;
   z-index: 1;
 }
-
 
 .react-player iframe {
   border-radius: 1.8rem;
@@ -22,4 +20,8 @@
 
 .react-player iframe:hover {
   filter: saturate(100%);
+}
+
+.swiper {
+  height: 1000px;
 }
