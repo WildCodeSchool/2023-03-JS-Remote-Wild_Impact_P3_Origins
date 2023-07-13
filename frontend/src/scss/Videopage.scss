@@ -1,0 +1,20 @@
+.Video-container {
+  height: 900px;
+  position: relative;
+  margin-top: 5%;
+}
+
+.video-react-player {
+  border-radius: 50%;
+  width: 80%;
+  margin: auto;
+  margin-top: 0;
+}
+
+.video-react-player iframe {
+  border-radius: 1.8rem;
+}
+
+h2 {
+  text-align: center;
+}

@@ -5,6 +5,7 @@ import Homepage from "./pages/Homepage";
 import Games from "./pages/admin/Games";
 import Gamespage from "./pages/Gamespage";
 import Videospage from "./pages/Videospage";
+import Videopage from "./pages/user/Videopage";
 import ProfilPage from "./pages/user/ProfilPage";
 import "./scss/App.scss";
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="signin" element={<Signin />} />
           <Route path="games" element={<Gamespage />} />
           <Route path="videos" element={<Videospage />} />
+          <Route path="videos/:id" element={<Videopage />} />
           <Route path="profil" element={<ProfilPage />} />
         </Route>
 
