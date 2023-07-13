@@ -52,7 +52,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: 400 }}>
       <form onSubmit={createAccount}>
         <input
           type="email"
