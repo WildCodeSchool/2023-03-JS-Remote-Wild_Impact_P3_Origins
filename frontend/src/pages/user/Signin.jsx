@@ -10,6 +10,14 @@ function Signin() {
     email: "",
     password: "",
   });
+
+  console.info(
+    "Admin : eric.jean@exemple.fr OU sacha.comete@exemple.fr => MDP : 123123"
+  );
+  console.info(
+    "User en premium : aled.oskour@exemple.fr OU jean.dubalcon@exemple.fr => MDP : 123123"
+  );
+
   const { setUser } = useCurrentUser();
   const navigate = useNavigate();
 
