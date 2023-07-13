@@ -7,20 +7,20 @@ class VideosManager extends AbstractManager {
 
   findAll() {
     return this.database.query(`
-      select id, url, title, description, game_id, DATE_FORMAT(release_date , '%d-%c-%y %T') as release_date from  ${this.table} `);
+      select id, url, title, description, game_id, premium,  DATE_FORMAT(release_date , '%d-%c-%y %T') as release_date from  ${this.table} `);
   }
 
   find(id) {
     return this.database.query(
-      `SELECT id, url, title, description, game_id, DATE_FORMAT(release_date , '%d-%c-%y %T') as release_date from ${this.table}  where id = ?`,
+      `SELECT id, url, title, description, game_id, premium, DATE_FORMAT(release_date , '%d-%c-%y %T') as release_date from ${this.table}  where id = ?`,
       [id]
     );
   }
 
   insert(video, gameId) {
     return this.database.query(
-      `insert into ${this.table} (url, title, description, game_id, release_date) values(?, ?, ?, ?, NOW())`,
-      [video.url, video.title, video.description, gameId]
+      `insert into ${this.table} (url, title, description, game_id, premium, release_date) values(?, ?, ?, ?, ?, NOW())`,
+      [video.url, video.title, video.description, video.premium, gameId]
     );
   }
 
