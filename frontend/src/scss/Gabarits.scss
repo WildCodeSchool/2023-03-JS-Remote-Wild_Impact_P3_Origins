@@ -1,0 +1,68 @@
+/*BUTTON*/
+.main-titel {
+  @include mainTitle;
+}
+
+.btn-container {
+  @include btn-container;
+}
+
+.main-btn {
+  @include main-btn;
+}
+
+.main-btn::before {
+  @include main-btn-before;
+}
+
+.main-btn:hover::before {
+  height: 180%;
+}
+
+a.main-btn:hover {
+  color: white;
+}
+
+.label-title {
+  @include label-title;
+}
+
+.form-container {
+  @include form-container;
+}
+
+.form-container label {
+  @include form-container-label;
+}
+
+.basic-input {
+  @include basic-input($grey-green);
+}
+
+.basic-input:hover {
+  @include basic-input-hover($grey-green);
+}
+
+.option-list {
+  @include option-list($grey-green);
+}
+
+.radio-list {
+  @include radio-list;
+}
+
+.radio-label {
+  @include radio-label;
+}
+
+.error {
+  @include error;
+}
+
+.robot {
+  @include robot;
+}
+
+.redirection {
+  @include mainBtn($grey-green);
+}
