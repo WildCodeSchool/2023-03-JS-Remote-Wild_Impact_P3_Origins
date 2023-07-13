@@ -33,8 +33,6 @@ function App() {
           <Route path="" element={<AdminDashboard />} />
 
           <Route path="games" element={<Games />} />
-          <Route path="games/:id" element={<AdminDashboard />} />
-          <Route path="games/add" element={<AdminDashboard />} />
 
           <Route path="videos" element={<AdminDashboard />} />
           <Route path="videos/:id" element={<AdminDashboard />} />
