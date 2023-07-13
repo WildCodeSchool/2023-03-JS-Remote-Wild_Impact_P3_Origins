@@ -70,6 +70,7 @@ function Games() {
     try {
       const update = await connexion.put(`/games/${gameData.id}`, gameData);
       notify(update);
+      getGames();
     } catch (err) {
       toast.error(
         "Une erreur s'est produite. Veuillez ressayer dans quelques instants"
@@ -79,7 +80,7 @@ function Games() {
 
   const deleteGame = async () => {
     try {
-      const destroy = await connexion.delete(`/games/${gameData.id}`, gameData);
+      const destroy = await connexion.delete(`/games/${gameData.id}`);
       toast.info(destroy.msg);
       setGameModalIsOpen(false);
       getGames();
@@ -93,7 +94,7 @@ function Games() {
   return (
     <div>
       <button type="button" onClick={() => setModalIsOpen(true)}>
-        Ajouter un jeux
+        Ajouter un jeu
       </button>
 
       <Modal
@@ -168,7 +169,7 @@ function Games() {
         />
 
         <form onSubmit={updateGame}>
-          <label htmlFor="label"> Nom </label>
+          <label htmlFor="label"> Nom du jeu </label>
           <input
             type="text"
             value={gameData.label}
@@ -177,7 +178,7 @@ function Games() {
             required
           />
 
-          <label htmlFor="acronyme"> Acronyme </label>
+          <label htmlFor="acronyme"> Acronyme du jeu </label>
           <input
             type="text"
             value={gameData.acronyme}
@@ -186,7 +187,7 @@ function Games() {
             required
           />
 
-          <label htmlFor="src"> Src </label>
+          <label htmlFor="src"> Image du jeu </label>
           <input
             type="text"
             value={gameData.src}
@@ -195,7 +196,7 @@ function Games() {
             required
           />
 
-          <label htmlFor="alt"> Src </label>
+          <label htmlFor="alt"> Alt </label>
           <input
             type="text"
             value={gameData.alt}
@@ -204,7 +205,7 @@ function Games() {
             required
           />
 
-          <label htmlFor="logo"> Src </label>
+          <label htmlFor="logo"> Image petit format </label>
           <input
             type="text"
             value={gameData.logo}
