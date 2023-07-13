@@ -177,6 +177,22 @@ VALUES (
         7
     );
 
+UPDATE users
+SET password
+    = "$2a$08$ILs0Be3JLiVh3OaKZm5dEOpnF2vVQYp5ufMdHMdtHwGefoWr6TrX.";
+
+UPDATE users SET role = "admin" WHERE id = 1;
+
+UPDATE users SET role = "admin" WHERE id = 7;
+
+UPDATE users SET is_premium = 1 WHERE id = 1;
+
+UPDATE users SET is_premium = 1 WHERE id = 6;
+
+UPDATE users SET is_premium = 1 WHERE id = 7;
+
+UPDATE users SET is_premium = 1 WHERE id = 5;
+
 INSERT INTO
     teams(name, acronym, src, alt)
 VALUES (
