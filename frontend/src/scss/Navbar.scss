@@ -24,7 +24,7 @@
 
 .navbar {
   position: fixed;
-  top: 5%;
+  top: 10%;
   left: 0;
   width: 100%;
   display: flex;
@@ -32,7 +32,6 @@
   align-items: center;
   padding: 1rem;
   background-color: $background-black;
-  z-index: 10;
 }
 
 .navbar button {
