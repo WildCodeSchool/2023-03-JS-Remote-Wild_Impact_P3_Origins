@@ -1,0 +1,28 @@
+.connexionBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 200px));
+  grid-gap: 5px 5px;
+  justify-content: center;
+  margin: auto;
+  flex-direction: row;
+  height: 50px;
+  color: white;
+  background-color: rgb(100, 119, 116);
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+  align-content: center;
+  justify-items: end;
+  position: fixed;
+}
+
+.connexionBar a {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+a.Abonner-btn {
+  color: $grey-green;
+  text-transform: uppercase;
+}

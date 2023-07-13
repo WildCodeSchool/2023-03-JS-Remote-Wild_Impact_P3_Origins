@@ -1,0 +1,27 @@
+.player-wrapper {
+  height: 1000px;
+  z-index: 1;
+}
+
+.react-player {
+  width: 80%;
+  margin: auto;
+  padding-top: 10%;
+  border-radius: 100px;
+  z-index: 1;
+}
+
+.react-player iframe {
+  border-radius: 1.8rem;
+  padding: 0.2rem;
+  filter: saturate(20%);
+  z-index: 1;
+}
+
+.react-player iframe:hover {
+  filter: saturate(100%);
+}
+
+.swiper {
+  height: 1000px;
+}

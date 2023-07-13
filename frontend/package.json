@@ -17,6 +17,11 @@
     "react-router-dom": "^6.12.0",
     "react-toastify": "^9.1.3",
     "sass": "^1.62.1",
+    "react-player": "^2.12.0",
+    "react-router-dom": "^6.12.0",
+    "react-toastify": "^9.1.3",
+    "sass": "^1.62.1",
+    "swiper": "^10.0.4",
     "vite": "^4.0.4"
   },
   "devDependencies": {
