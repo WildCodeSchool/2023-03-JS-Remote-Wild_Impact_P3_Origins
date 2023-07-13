@@ -7,6 +7,7 @@ const videoModel = {
   title: "",
   description: "",
   game_id: "",
+  premium: "",
 };
 
 function FormAddVideo() {
@@ -142,6 +143,17 @@ function FormAddVideo() {
           {games.map((game) => (
             <option value={game.id}>{game.label}</option>
           ))}
+        </select>
+        <h2>Mettre la vidéo en :</h2>
+        <select
+          name="premium"
+          id=""
+          value={video.premium}
+          onChange={(event) => handleVideo(event)}
+        >
+          <option value="">Choisir la version </option>
+          <option value="0">Publique</option>
+          <option value="1">Premium</option>
         </select>
         {!video.id && (
           <button type="submit" className="btn btn-secondary col-5 m-2">
