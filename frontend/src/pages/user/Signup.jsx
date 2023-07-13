@@ -23,7 +23,7 @@ function Signup() {
       setTimeout(() => {
         navigate("/");
       }, 5000);
-    } else if (signup.status === 409) {
+    } else if (signup.status === 409 || signup.status === 400) {
       toast.info(signup.data.msg);
     } else {
       toast.error(
@@ -52,7 +52,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: 400 }}>
       <form onSubmit={createAccount}>
         <input
           type="email"

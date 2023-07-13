@@ -38,8 +38,8 @@ const add = (req, res) => {
         .location(`/teams/${result.insertId}`)
         .status(201)
         .json({
-          id: result.insertId,
           ...teams,
+          id: result.insertId,
         });
     })
     .catch((err) => {

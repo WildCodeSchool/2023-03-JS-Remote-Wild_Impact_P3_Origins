@@ -30,12 +30,15 @@ const read = (req, res) => {
 };
 
 const add = (req, res) => {
-  const videos = req.body;
-
+  const video = req.body;
+  const gameId = parseInt(video.game_id, 10);
   models.videos
-    .insert(videos)
+    .insert(video, gameId)
     .then(([result]) => {
-      res.location(`/videos/add/${result.insertId}`).sendStatus(201);
+      res
+        .location(`/videos/${result.insertId}`)
+        .status(201)
+        .json({ ...video, id: result.insertId });
     })
     .catch((err) => {
       console.error(err);
@@ -44,15 +47,16 @@ const add = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const teams = req.body;
-  teams.id = parseInt(req.params.id, 10);
-  models.teams
-    .update(teams)
+  const video = req.body;
+  const videoId = parseInt(video.id, 10);
+
+  models.videos
+    .update(video, videoId)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(404).send("Modification non effetuée");
+        res.status(404).json({ msg: "Modification non effetuée" });
       } else {
-        res.status(201).send("Votre modification a été effectué");
+        res.status(201).json({ msg: "Votre modification a été effectué" });
       }
     })
     .catch((err) => {
@@ -62,15 +66,13 @@ const edit = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  const teams = req.body;
-  teams.id = parseInt(req.params.id, 10);
-  models.teams
+  models.videos
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.status(201).send("Votre suppression à été effectué");
+        res.status(201).json({ msg: "Votre suppression à été effectué" });
       }
     })
     .catch((err) => {

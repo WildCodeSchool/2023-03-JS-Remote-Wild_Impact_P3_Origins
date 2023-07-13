@@ -1,22 +1,16 @@
 import React from "react";
-import EGamers from "../assets/Gamers-esport.png";
+import HeaderSwiper from "../components/HeaderSwiper";
+import Gabarits from "../components/Gabarits";
 
 function Homepage() {
   return (
     <div className="container">
       <header className="header-container">
-        <div className="main-title">
-          <h2 className="header-title">Homepage</h2>
-        </div>
-        <div className="image-container">
-          <img
-            className="main-picture"
-            src={EGamers}
-            alt="esport"
-            width="100%"
-          />
-        </div>
+        <HeaderSwiper />
       </header>
+      <section>
+        <Gabarits />
+      </section>
     </div>
   );
 }

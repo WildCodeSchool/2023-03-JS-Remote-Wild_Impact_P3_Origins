@@ -2,12 +2,14 @@
 @import "./Homepage.scss";
 @import "./Navbar.scss";
 @import "./Games.scss";
-@import "./FormulaireExample.scss";
 @import "./Sidebar.scss";
 @import "./AdminLayout.scss";
 @import "./Videospage.scss";
 @import "./Videocard.scss";
 @import "./FormAddVideo.scss";
+@import "./HeaderSwiper.scss";
+@import "./ConnexionBar.scss";
+@import "./Gabarits.scss";
 
 * {
   margin: 0;
@@ -16,5 +18,15 @@
 }
 
 body {
-  background-color: $background-bleu;
+  font-family: $title-font-family;
+}
+
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  width: 500px;
+  background-color: papayawhip;
 }

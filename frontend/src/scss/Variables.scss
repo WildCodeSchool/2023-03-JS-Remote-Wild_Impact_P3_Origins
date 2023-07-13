@@ -1,8 +1,271 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 /* COLORS*/
-$background-black: #0e1217;
-$background-bleu: #181a51;
-$background-grey: #939393;
+$background-black: #00273a;
+$flashy-green: #42e2b8;
+$grey-green: #6dc6af;
+$background-grey: rgba(235.07, 235.07, 235.07, 0.5);
+$dark-grey: #2a2c2b;
 
 /*FONTS*/
-$title-font-family: "Nunito", sans-serif;
+$title-font-family: "Khand", sans-serif;
+
+/*BUTTON*/
+@mixin btn-container {
+  margin-top: 3rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 90px;
+}
+
+@mixin main-btn {
+  position: relative;
+  text-align: center;
+  color: $grey-green;
+  display: block;
+  font-size: 2.2rem;
+  font-family: $title-font-family;
+  text-decoration: none;
+  border: 2px solid;
+  border-color: $grey-green;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 1s all ease;
+}
+
+@mixin main-btn-before {
+  background: $grey-green;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+  width: 120%;
+  height: 0%;
+  transform: translate(-50%, -50%) rotate(25deg);
+}
+
+/* FORM CONTAINER*/
+
+@mixin form-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* FORM INPUT*/
+
+@mixin basic-input($input-color) {
+  border: none;
+  background: #fbfbfb;
+  color: $background-black;
+  margin-top: 0px;
+  width: 400px;
+  border-bottom: 5px solid;
+  border-color: $input-color;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  transition: ease 0.5s;
+
+  &:hover {
+    @include basic-input-hover($input-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin basic-input-hover($input-color-hover) {
+  border-bottom: 8px solid;
+  border-color: $input-color-hover;
+  height: 50px;
+  width: 400px;
+  transition: ease 0.5s;
+}
+
+@mixin toastNotif {
+  height: 120px;
+}
+
+@mixin form-container-label {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 400px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@mixin mainTitle {
+  font-family: $title-font-family;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-size: 2.8rem;
+  margin: auto;
+}
+
+@mixin labelTitle($color) {
+  font-family: $title-font-family;
+  color: $color;
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+@mixin label-title {
+  text-align: left;
+  display: flex;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+@mixin mainBtn($color) {
+  margin: 1.5rem auto;
+  padding: 1.2rem;
+  border-radius: 2.5rem;
+  color: $color;
+  border: 1px solid;
+  border-color: $color;
+  background: none !important;
+  font-family: $title-font-family;
+  line-height: 1;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+@mixin mainBtnHover($color-hover) {
+  transition: all 0.3s ease;
+  border: 1px solid $color-hover;
+  background-color: $color-hover;
+  color: $color-hover;
+  line-height: 1;
+  cursor: url(https://cur.cursors-4u.net/symbols/sym-7/sym646.gif), auto !important;
+}
+
+@mixin option-list($option-color) {
+  font-family: $title-font-family;
+  border: none;
+  background: #fbfbfb;
+  color: $background-black;
+  margin-top: 0px;
+  width: 400px;
+  border-bottom: 5px solid;
+  border-color: $option-color;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+}
+
+@mixin legend-title {
+  font-family: $title-font-family;
+  color: $green;
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+@mixin radio-list {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #d5d4d4;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: transparent;
+  position: relative;
+  top: 6px;
+}
+
+@mixin radio-label {
+  text-align: left;
+  display: block;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: $title-font-family;
+}
+
+@keyframes appear {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #fff;
+  }
+
+  45% {
+    transform: translate(-50%, -50%) scale(1.6);
+    background-color: #64aedf;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.7);
+    background-color: #ad97b3;
+  }
+
+  55% {
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    background-color: #ca8489;
+  }
+}
+
+@mixin error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-weight: 300;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: $title-font-family;
+  height: 100svh;
+}
+
+@mixin robot {
+  width: 100vw;
+  height: 50vh;
+  max-width: 50vh;
+}

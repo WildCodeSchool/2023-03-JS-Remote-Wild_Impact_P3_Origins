@@ -29,6 +29,17 @@ const updateSchema = () => {
   });
 };
 
+const gamesSchema = () => {
+  return joi.object({
+    id: joi.number(),
+    label: joi.string(),
+    acronyme: joi.string().alphanum(),
+    src: joi.string(),
+    alt: joi.string(),
+    logo: joi.string(),
+  });
+};
+
 const checkUserData = (req, res, next) => {
   const { error } = authSchema("required").validate(req.body, {
     abortEarly: false,
@@ -67,7 +78,23 @@ const checkUpdateData = (req, res, next) => {
   }
 };
 
+const checkGameData = (req, res, next) => {
+  const { error } = gamesSchema("required").validate(req.body, {
+    abortEarly: false,
+  });
+
+  if (error) {
+    console.error(error.details[0]);
+    if (error.details[0].type === "string.alphanum") {
+      res.status(400).json({ msg: "caractère alphanumérique uniquement" });
+    }
+  } else {
+    next();
+  }
+};
+
 module.exports = {
   checkUserData,
   checkUpdateData,
+  checkGameData,
 };
