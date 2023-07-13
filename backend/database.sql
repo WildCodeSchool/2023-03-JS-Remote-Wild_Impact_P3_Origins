@@ -197,7 +197,7 @@ VALUES (
     ), (
         "Vitality Bee",
         "VIT",
-        "https://liquipedia.net/commons/images/5/55/Team_Vitality_2021_allmode.png",
+        "https://www.forumdesimages.fr/media/fdi/36398-vitality_logo-c-vitality.jpg",
         "Vitality"
     ), (
         "Team BDS",
@@ -207,7 +207,7 @@ VALUES (
     ), (
         "Solary",
         "SLY",
-        "https://liquipedia.net/commons/images/4/4d/Solary_lightmode.png",
+        "https://static.mensup.fr/22/2022/01/photo_article/751937/295498/1200-L-lfl-solary-remporte-son-premier-match-2022.jpg",
         "Solary"
     );
 
@@ -220,37 +220,37 @@ INSERT INTO
         game_id
     )
 VALUES (
-        "https://www.unrankedsmurfs.com/storage/blogposts/what-is-league-of-legends/leagueoflegends.jpg",
+        "https://www.youtube.com/watch?v=8N3gVh69Z1w",
         "Vita vs KC",
         "Demi-final de LFL",
         "2023-05-28",
         1
     ), (
-        "https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/League_of_Legends_Screenshot_2018.png/260px-League_of_Legends_Screenshot_2018.png",
+        "https://www.youtube.com/watch?v=f2ll2Vk2h-I",
         "BDS vs LDLC",
         "Demi final de LFL",
         "2023-04-15",
         1
     ), (
-        "https://www.number13.de/content/images/size/w1600/2019/02/League-of-Legends-Cover.jpg",
+        "https://www.youtube.com/watch?v=b4f9DgEO0ww&pp=ygUMTEZMIEJEUyBWSVRB",
         "Vita vs BDS",
         "Final de LFL",
         "2023-03-28",
         1
     ), (
-        "https://www.creocommunity.com/wp-content/uploads/2022/12/Comment-verifier-combien-de-temps-vous-avez-perdu-sur-LoL.jpg",
+        "https://www.youtube.com/watch?v=ryczfS3jd_U&pp=ygULTEZMIEtDIExETEM%3D",
         "KC vs LDLC",
         "Petite final",
         "2023-02-20",
         1
     ), (
-        "https://cdn-mds.pickx.be/News/w-600_h-315_smart-1/valorant-2022_20220610112714.jpeg",
+        "https://www.youtube.com/watch?v=fdcFe6sb3wQ&pp=ygUKTEZMIEtDIFNMWQ%3D%3D",
         "KC vs SLY",
         "Demi final",
         "2023-06-01",
         2
     ), (
-        "https://media.wired.com/photos/5ea0840cb0490300086261e3/master/w_2560%2Cc_limit/Cul-Reveal_ReactorA_VALORANT.jpg",
+        "https://www.youtube.com/watch?v=gzvndE7-5sU&pp=ygULVkFMT1JBTlQgS0M%3D",
         "Aegis vs BDS",
         "Demi final",
         "2023-04-03",
@@ -262,55 +262,55 @@ VALUES (
         "2023-02-28",
         2
     ), (
-        "https://www.ggrecon.com/media/nljnxbrl/valorant-game-size-2022.jpg",
+        "https://www.youtube.com/watch?v=n3QGn4kkFIY&pp=ygUMVkFMT1JBTlQgQkRT",
         "KC vs BDS",
         "Petite final",
         "2022-07-28",
         2
     ), (
-        "https://cdn.i-scmp.com/sites/default/files/d8/yp/images/px21004cd9.jpg",
+        "https://www.youtube.com/watch?v=ozect8isxQI&pp=ygULQ1NHTyBFU1BPUlQ%3D",
         "Vita vs LDLC",
         "Demi final",
         "2022-12-28",
         3
     ), (
-        "https://cdn-apolk.nitrocdn.com/OQiePNRUqJfHBqLKvZoiGpdqxWyrBWmu/assets/images/optimized/rev-5b378d2/wp-content/uploads/elementor/thumbs/csgo-run-pyq9g08l6h7zozj1ikf5lfl66g2kxbdd1gx012twik.png",
+        "https://www.youtube.com/watch?v=GsyNdAH8CL4&pp=ygUMVkFMT1JBTlQgQkRT",
         "Aegis vs SLY",
         "Demi final",
         "2022-11-30",
         3
     ), (
-        "https://insider-gaming.com/wp-content/uploads/2023/03/CSGOFeatured.jpg",
+        "https://www.youtube.com/watch?v=qa454jRcba8&pp=ygULQ1NHTyBFU1BPUlQ%3D",
         "SLY vs Vita",
         "Final",
         "2022-10-13",
         3
     ), (
-        "https://greencade.com/wp-content/uploads/2023/03/cs-go-game-ban-sung-nhieu-nguoi-choi-nhat-tren-the-gioi-221745-29-04-2020-4.jpeg",
+        "https://www.youtube.com/watch?v=pZLK1wZNN_s&pp=ygULQ1NHTyBFU1BPUlQ%3D",
         "LDLC vs Aegis",
         "Petite final",
         "2022-09-25",
         3
     ), (
-        "https://e1.365dm.com/16/08/2048x1152/rocket-league-esports-greazy_3763097.jpg",
+        "https://www.youtube.com/watch?v=3mbUKHLme_Y&pp=ygUFUkwgS0M%3D",
         "KC vs BDS",
         "Demi final",
         "2022-08-31",
         4
     ), (
-        "https://i.ytimg.com/vi/riilLCDgf-s/maxresdefault.jpg",
+        "https://www.youtube.com/watch?v=xWOAwXO4FS0&pp=ygUGUkwgU0xZ",
         "SLY vs Aegis",
         "Demi final",
         "2022-07-28",
         4
     ), (
-        "https://static.actugaming.net/media/2015/07/Rocket-League-4-889x500.jpg",
+        "https://www.youtube.com/watch?v=m8j34BISJco&pp=ygUJUkwgU0xZIEtD",
         "KC vs SLY",
         "Final",
         "2022-06-30",
         4
     ), (
-        "https://cdn.vox-cdn.com/thumbor/94t1Qbd8QIXY7rd9P2nnSqH6q5w=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/67087232/rl_rp4_key_art_no_logos.309bf22bd29c2e411e9dd8eb07575bb1.0.jpg",
+        "https://www.youtube.com/watch?v=0-UxFn596zI&pp=ygUGUkwgQkRT",
         "Aegis vs BDS",
         "Petite final",
         "2022-06-21",
