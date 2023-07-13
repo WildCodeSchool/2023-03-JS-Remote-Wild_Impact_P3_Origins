@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer, Flip } from "react-toastify";
 import connexion from "../../services/connexion";
-import TeamCard from "../../components/TeamCard";
 import "react-toastify/dist/ReactToastify.css";
 
 const teamModel = {
+  id: null,
   name: "",
   acronym: "",
   src: "",
@@ -13,60 +13,83 @@ const teamModel = {
 
 function Teams() {
   const [teams, setTeams] = useState([]);
-  const [teamAdd, setTeamAdd] = useState(teamModel);
-  const [teamToUpdate, setTeamToUpdate] = useState([]);
+  const [team, setTeam] = useState(teamModel);
 
   const getTeams = async () => {
-    const teamsData = await connexion.get("/teams");
     try {
-      if (teamsData) {
-        setTeams(teamsData);
-      }
+      const teamsData = await connexion.get("/teams");
+      setTeams(teamsData);
     } catch (error) {
       toast.error("Une erreur est survenue");
     }
   };
 
-  const postTeam = async () => {
+  const postTeam = async (event) => {
+    event.preventDefault();
     try {
-      const addTeamData = await connexion.post("/teams", teamModel);
-      setTeamAdd(addTeamData);
+      const teamData = await connexion.post("/teams", team);
+      setTeam(teamData.data);
+    } catch (error) {
+      toast.error("Une erreur est survenue");
+    }
+  };
+
+  const updateTeamState = (id) => {
+    if (id === 0) {
+      setTeam(teamModel);
+    } else {
+      setTeam(teams.find((tm) => tm.id === +id));
+    }
+  };
+
+  const updateTeam = async (event) => {
+    event.preventDefault();
+    try {
+      await connexion.put(`/teams/${team.id}`, team);
+      setTeam(teamModel);
+    } catch (error) {
+      toast.error("Une erreur est survenue");
+    }
+  };
+
+  const deleteTeam = async (event) => {
+    event.preventDefault();
+    try {
+      await connexion.delete(`/teams/${team.id}`);
+      setTeam(teamModel);
       getTeams();
     } catch (error) {
       toast.error("Une erreur est survenue");
     }
   };
 
-  const updateTeam = async () => {
-    try {
-      const teamData = connexion.get(`/teams`);
-      await connexion.put(`/teams/${teamData.id}`, teamToUpdate);
-      setTeamToUpdate(teamData);
-    } catch (error) {
-      toast.error("Une erreur est survenue");
-    }
-  };
-
-  const manageTeam = (event) => {
-    event.preventDefault();
-    if (teamAdd.id) {
-      updateTeam();
-    } else {
-      postTeam();
-    }
+  const handleTeam = (name, value) => {
+    setTeam({ ...team, [name]: value });
   };
 
   useEffect(() => {
     getTeams();
   }, []);
 
-  const handleTeam = (name, value) => {
-    setTeams({ ...teams, [name]: value });
-  };
-
   return (
     <div className="Bloc1">
-      <form onSubmit={(event) => manageTeam(event)}>
+      <div className="Robin">
+        <label htmlFor="">
+          Choisir une team
+          <select onChange={(event) => updateTeamState(+event.target.value)}>
+            <option value={0}>Rafraichir</option>
+            {teams.map((tm) => (
+              <option key={tm.id} value={tm.id}>
+                {tm.name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div className="Lucas">
+        <img src={team.src} alt="imagerie" />
+      </div>
+      <form onSubmit={(event) => postTeam(event)}>
         <label>
           Name
           <input
@@ -75,7 +98,7 @@ function Teams() {
             minLength={1}
             maxLength={255}
             name="name"
-            value={teams.name}
+            value={team.name}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
             }
@@ -90,7 +113,7 @@ function Teams() {
             minLength={1}
             maxLength={255}
             name="acronym"
-            value={teams.acronym}
+            value={team.acronym}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
             }
@@ -105,7 +128,7 @@ function Teams() {
             minLength={10}
             maxLength={255}
             name="src"
-            value={teams.src}
+            value={team.src}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
             }
@@ -120,17 +143,24 @@ function Teams() {
             minLength={1}
             maxLength={255}
             name="alt"
-            value={teams.alt}
+            value={team.alt}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
             }
           />
         </label>
-        <button type="submit">Ajouter</button>
+        {!team.id && <button type="submit">Ajouter</button>}
       </form>
-      {teams.map((team) => (
-        <TeamCard key={team.id} team={team} />
-      ))}
+      {team.id && (
+        <>
+          <button type="button" onClick={(event) => deleteTeam(event)}>
+            Supprimer
+          </button>
+          <button type="button" onClick={(event) => updateTeam(event)}>
+            Modifier
+          </button>
+        </>
+      )}
 
       <ToastContainer
         autoClose={2000}
@@ -142,5 +172,4 @@ function Teams() {
     </div>
   );
 }
-
 export default Teams;
