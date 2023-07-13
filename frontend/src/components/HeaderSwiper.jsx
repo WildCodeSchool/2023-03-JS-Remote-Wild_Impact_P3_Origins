@@ -2,20 +2,28 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay, EffectFlip } from "swiper/modules";
+import connexion from "../services/connexion";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import { Pagination, Navigation, Autoplay, EffectFlip } from "swiper/modules";
 
 function HeaderSwiper() {
-  const [video, setVideo] = useState([]);
+  const [videos, setVideos] = useState([]);
+
+  const getVideos = async () => {
+    try {
+      const videosData = await connexion.get("/videos");
+      setVideos(videosData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/videos`)
-      .then((data) => data.json())
-      .then((data) => setVideo(data));
+    getVideos();
   }, []);
 
   return (
@@ -38,7 +46,7 @@ function HeaderSwiper() {
         modules={[Pagination, Navigation, Autoplay, EffectFlip]}
         className="mySwiper"
       >
-        {video.slice(1, 4).map((Video) => (
+        {videos.slice(1, 4).map((Video) => (
           <SwiperSlide key={Video.id}>
             <ReactPlayer
               className="react-player"
