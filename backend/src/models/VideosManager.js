@@ -7,26 +7,27 @@ class VideosManager extends AbstractManager {
 
   findAll() {
     return this.database.query(`
-      select * from  ${this.table} `);
+      select id, url, title, description, game_id, DATE_FORMAT(release_date , '%d-%c-%y %T') as release_date from  ${this.table} `);
   }
 
   find(id) {
-    return this.database.query(`SELECT * from ${this.table}  where id = ?`, [
-      id,
-    ]);
-  }
-
-  insert(video) {
     return this.database.query(
-      `insert into ${this.table} (url,titre,description,release_date ) values(?, ?, ?, ?)`,
-      [video.url, video.titre, video.description, video.release_date]
+      `SELECT id, url, title, description, game_id, DATE_FORMAT(release_date , '%d-%c-%y %T') as release_date from ${this.table}  where id = ?`,
+      [id]
     );
   }
 
-  update(video) {
+  insert(video, gameId) {
+    return this.database.query(
+      `insert into ${this.table} (url, title, description, game_id, release_date) values(?, ?, ?, ?, NOW())`,
+      [video.url, video.title, video.description, gameId]
+    );
+  }
+
+  update(video, videoId) {
     return this.database.query(`update ${this.table} set ? where id = ?`, [
       video,
-      video.id,
+      videoId,
     ]);
   }
 

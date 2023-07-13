@@ -54,7 +54,7 @@ CREATE TABLE
     videos(
         `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `url` LONGTEXT,
-        `titre` VARCHAR(255),
+        `title` VARCHAR(255),
         `description` LONGTEXT,
         `release_date` DATE,
         `game_id` INT,
@@ -214,7 +214,7 @@ VALUES (
 INSERT INTO
     videos(
         url,
-        titre,
+        title,
         description,
         release_date,
         game_id
