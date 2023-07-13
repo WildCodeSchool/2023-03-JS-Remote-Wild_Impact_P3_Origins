@@ -161,9 +161,6 @@ function Teams() {
           </button>
         </>
       )}
-      {/* {teams.map((team) => (
-        <TeamCard key={team.id} team={team} />
-      ))} */}
 
       <ToastContainer
         autoClose={2000}
