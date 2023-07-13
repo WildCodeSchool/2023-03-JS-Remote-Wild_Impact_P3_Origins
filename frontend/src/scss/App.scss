@@ -7,6 +7,8 @@
 @import "./Videospage.scss";
 @import "./Videocard.scss";
 @import "./FormAddVideo.scss";
+@import "./HeaderSwiper.scss";
+@import "./ConnexionBar.scss";
 
 * {
   margin: 0;
@@ -15,6 +17,5 @@
 }
 
 body {
-  background-color: $background-black;
   font-family: $title-font-family;
 }
