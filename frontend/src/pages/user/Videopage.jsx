@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import connexion from "../../services/connexion";
 import ReactPlayer from "react-player";
-import "../../scss/Videopage.scss"
+import { toast, ToastContainer, Flip } from "react-toastify";
+import connexion from "../../services/connexion";
+import "../../scss/Videopage.scss";
 
 function Videopage() {
   const { id } = useParams();
@@ -32,8 +33,15 @@ function Videopage() {
         height="90%"
       />
       <h2>{video.title}</h2>
+      <ToastContainer
+        autoClose={2000}
+        position="top-center"
+        draggable
+        transition={Flip}
+        toastClassName="custom-toast"
+      />
     </div>
-  )
+  );
 }
 
 export default Videopage;
