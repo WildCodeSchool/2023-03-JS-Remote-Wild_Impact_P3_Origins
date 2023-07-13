@@ -8,7 +8,7 @@ function ConnexionBar() {
         <Link to="#Abonnement" className="Abonner-btn">
           Pourquoi s'abonner?
         </Link>
-        <Link to="/profil" className="base-btn">
+        <Link to="/signin" className="base-btn">
           Connexion
         </Link>
 
