@@ -9,7 +9,7 @@ function ConnexionBar() {
           Pourquoi s'abonner?
         </Link>
         <Link to="/signin" className="base-btn">
-          Connexion
+          Se Connecter
         </Link>
 
         <Link to="/admin/" className="base-btn">
