@@ -1,0 +1,91 @@
+.Favoris-title {
+  text-transform: uppercase;
+  font-size: 2rem;
+  background-color: $background-grey;
+  height: 300px;
+  padding-top: 30px;
+  margin-top: 2rem;
+  font-weight: 200 !important;
+}
+
+.Favoris-wrapper {
+  min-height: 550px;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: -200px;
+}
+
+.Favoris-Swiper svg {
+  color: $flashy-green;
+  height: 2em !important;
+  width: 2em !important;
+  position: absolute;
+  z-index: 5;
+  top: 15%;
+  left: 3%;
+}
+
+.react-player-favoris {
+  width: 80%;
+  margin: auto;
+  padding-top: 8%;
+  z-index: 1;
+}
+
+.react-player-favoris iframe {
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  filter: saturate(20%);
+  z-index: 1;
+}
+
+.react-player-favoris iframe:hover {
+  filter: saturate(100%);
+  width: 90%;
+  height: 90%;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  margin-right: auto;
+}
+
+.Favoris-Swiper {
+  height: 400px !important;
+  padding: auto;
+}
+
+.video-description {
+  background-color: white;
+  z-index: 10;
+  position: absolute;
+  width: 90%;
+  top: 90%;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  border-left: 4px solid $flashy-green;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.descript-title {
+  font-size: 1.8rem;
+}
+
+.descript-text:after {
+  content: "\00BB";
+  color: $flashy-green;
+  margin-left: 15rem;
+  font-size: 1.4rem;
+}
+
+.video-description:hover {
+  background-color: $grey-green;
+  color: white;
+}
+
+.descript-text:after:hover {
+  color: white;
+  margin-left: 18rem;
+}
