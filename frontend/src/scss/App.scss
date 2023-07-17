@@ -2,6 +2,8 @@
 @import "./Homepage.scss";
 @import "./Navbar.scss";
 @import "./Games.scss";
+@import "./Teams.scss";
+@import "./VideoAdmin.scss";
 @import "./Sidebar.scss";
 @import "./AdminLayout.scss";
 @import "./Videospage.scss";
@@ -12,6 +14,7 @@
 @import "./Gabarits.scss";
 @import "./AbonnementArguments.scss";
 @import "./Signin.scss";
+@import "./Signup.scss";
 @import "./FavorisSwiper.scss";
 @import "./NewsAnimated.scss";
 @import "./ReprendreSwiper.scss";
@@ -29,11 +32,12 @@ body {
 }
 
 .Modal {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  width: 500px;
-  background-color: papayawhip;
+  margin: auto;
+  align-items: center;
+  color: beige;
+  width: 50%;
+  background-color: $background-black;
 }

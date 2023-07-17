@@ -83,8 +83,8 @@ function FormAddVideo() {
   }, []);
 
   return (
-    <div className="formContainer">
-      <h2>Liste de mes vidéos</h2>
+    <div className="videos-container form-container">
+      <h2 className="main-titel">Liste de mes vidéos</h2>
       <select onChange={(event) => updateVideoState(event.target.value)}>
         <option value="">Choisir une vidéo</option>
         {videos.map((vid) => (
@@ -95,20 +95,21 @@ function FormAddVideo() {
       </select>
 
       <h2>Ajouter une video</h2>
-      <form onSubmit={(event) => postVideo(event)}>
-        <label>
+      <form className="videos-container" onSubmit={(event) => postVideo(event)}>
+        <label htmlFor="label" className="label-title">
           url video
           <input
             type="text"
             minLength={10}
             maxLength={255}
             name="url"
+            className="basic-input animated"
             onChange={(event) => handleVideo(event)}
             value={video.url}
             required
           />
         </label>
-        <label>
+        <label htmlFor="label" className="label-title">
           Title
           <input
             type="text"
@@ -116,12 +117,13 @@ function FormAddVideo() {
             minLength={10}
             maxLength={255}
             name="title"
+            className="basic-input animated"
             onChange={(event) => handleVideo(event)}
             value={video.title}
           />
         </label>
 
-        <label>
+        <label htmlFor="label" className="label-title">
           Description
           <input
             type="text"
@@ -129,6 +131,7 @@ function FormAddVideo() {
             minLength={10}
             maxLength={255}
             name="description"
+            className="basic-input animated"
             onChange={(event) => handleVideo(event)}
             value={video.description}
           />
@@ -156,17 +159,25 @@ function FormAddVideo() {
           <option value="1">Premium</option>
         </select>
         {!video.id && (
-          <button type="submit" className="btn btn-secondary col-5 m-2">
+          <button type="submit" className="main-btn teams-btn">
             Ajouter
           </button>
         )}
       </form>
       {video.id && (
         <>
-          <button type="button" onClick={(event) => deleteVideo(event)}>
+          <button
+            type="button"
+            className="main-btn teams-btn"
+            onClick={(event) => deleteVideo(event)}
+          >
             Supprimer
           </button>
-          <button type="button" onClick={(event) => updateVideo(event)}>
+          <button
+            type="button"
+            className="main-btn teams-btn"
+            onClick={(event) => updateVideo(event)}
+          >
             Modifier
           </button>
         </>

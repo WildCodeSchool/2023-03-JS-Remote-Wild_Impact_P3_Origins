@@ -53,33 +53,44 @@ function Signup() {
 
   return (
     <div style={{ marginTop: 400 }}>
-      <form onSubmit={createAccount}>
+      <form onSubmit={createAccount} className="signup-container">
         <input
           type="email"
           value={userSignup.email}
           onChange={(event) => handleUser(event)}
           name="email"
+          className="basic-input animated"
           required
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" className="label-title">
+          Email
+        </label>
         <input
           type="password"
           value={userSignup.password}
           onChange={(event) => handleUser(event)}
           name="password"
+          className="basic-input animated"
           required
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="label-title">
+          Password
+        </label>
         <input
           type="password"
           value={userSignup.passwordConfirmation}
           onChange={(event) => handleUser(event)}
           name="passwordConfirmation"
+          className="basic-input animated"
           required
         />
-        <label htmlFor="passwordConfirmation">Confirmer le mot de passe</label>
+        <label htmlFor="passwordConfirmation" className="label-title">
+          Confirmer le mot de passe
+        </label>
 
-        <button type="submit">Signup</button>
+        <button type="submit" className="main-btn signup-btn">
+          Signup
+        </button>
 
         <ToastContainer
           autoClose={5000}

@@ -92,8 +92,12 @@ function Games() {
   };
 
   return (
-    <div>
-      <button type="button" onClick={() => setModalIsOpen(true)}>
+    <div className="games-container form-container">
+      <button
+        type="button"
+        className="main-btn games-btn"
+        onClick={() => setModalIsOpen(true)}
+      >
         Ajouter un jeu
       </button>
 
@@ -103,57 +107,78 @@ function Games() {
         onRequestClose={() => setModalIsOpen(false)}
       >
         <h2>Ajouter un jeu</h2>
-        <button type="button" onClick={() => setModalIsOpen(false)}>
+        <button
+          type="button"
+          className="main-btn games-btn"
+          onClick={() => setModalIsOpen(false)}
+        >
           Fermer
         </button>
 
-        <form onSubmit={addGame}>
+        <form onSubmit={addGame} className="games-container">
           <input
             type="label"
             value={addGames.label}
             onChange={(event) => handleUser(event)}
             name="label"
+            className="basic-input animated"
             required
           />
-          <label htmlFor="label">Nom</label>
+          <label htmlFor="label" className="label-title">
+            Nom
+          </label>
 
           <input
             type="acronyme"
             value={addGames.acronyme}
             onChange={(event) => handleUser(event)}
             name="acronyme"
+            className="basic-input animated"
             required
           />
-          <label htmlFor="acronyme">Acronyme</label>
+          <label htmlFor="acronyme" className="label-title">
+            Acronyme
+          </label>
 
           <input
             type="src"
             value={addGames.src}
             onChange={(event) => handleUser(event)}
             name="src"
+            className="basic-input animated"
             required
           />
-          <label htmlFor="src">src</label>
+          <label htmlFor="src" className="label-title">
+            src
+          </label>
 
           <input
             type="alt"
             value={addGames.alt}
             onChange={(event) => handleUser(event)}
             name="alt"
+            className="basic-input animated"
             required
           />
-          <label htmlFor="alt">alt</label>
+          <label htmlFor="alt" className="label-title">
+            alt
+          </label>
 
           <input
             type="logo"
             value={addGames.logo}
             onChange={(event) => handleUser(event)}
             name="logo"
+            className="basic-input animated"
             required
           />
-          <label htmlFor="logo">logo</label>
+          <label htmlFor="logo" className="label-title">
+            logo
+          </label>
 
-          <button type="submit">Ajouter</button>
+          <button type="submit" className="main-btn games-btn">
+            Ajouter
+          </button>
         </form>
       </Modal>
 
@@ -169,60 +194,86 @@ function Games() {
         />
 
         <form onSubmit={updateGame}>
-          <label htmlFor="label"> Nom du jeu </label>
+          <label htmlFor="label" className="label-title">
+            {" "}
+            Nom du jeu{" "}
+          </label>
           <input
             type="text"
             value={gameData.label}
             onChange={handleGameData}
             name="label"
+            className="basic-input animated"
             required
           />
 
-          <label htmlFor="acronyme"> Acronyme du jeu </label>
+          <label htmlFor="acronyme" className="label-title">
+            {" "}
+            Acronyme du jeu{" "}
+          </label>
           <input
             type="text"
             value={gameData.acronyme}
             onChange={handleGameData}
             name="acronyme"
+            className="basic-input animated"
             required
           />
 
-          <label htmlFor="src"> Image du jeu </label>
+          <label htmlFor="src" className="label-title">
+            {" "}
+            Image du jeu{" "}
+          </label>
           <input
             type="text"
             value={gameData.src}
             onChange={handleGameData}
             name="src"
+            className="basic-input animated"
             required
           />
 
-          <label htmlFor="alt"> Alt </label>
+          <label htmlFor="alt" className="label-title">
+            {" "}
+            Alt{" "}
+          </label>
           <input
             type="text"
             value={gameData.alt}
             onChange={handleGameData}
             name="alt"
+            className="basic-input animated"
             required
           />
 
-          <label htmlFor="logo"> Image petit format </label>
+          <label htmlFor="logo" className="label-title">
+            {" "}
+            Image petit format{" "}
+          </label>
           <input
             type="text"
             value={gameData.logo}
             onChange={handleGameData}
             name="logo"
+            className="basic-input animated"
             required
           />
-          <button type="submit">Modifier le jeu</button>
+          <button type="submit" className="main-btn games-btn">
+            Modifier le jeu
+          </button>
         </form>
 
-        <button type="button" onClick={() => deleteGame()}>
+        <button
+          type="button"
+          className="main-btn games-btn"
+          onClick={() => deleteGame()}
+        >
           Supprimer
         </button>
       </Modal>
 
       <div className="game-container">
-        <h1>Liste des jeux</h1>
+        <h1 className="main-titel">Liste des jeux</h1>
         {games.map((game) => (
           <GamesCard
             key={game.id}

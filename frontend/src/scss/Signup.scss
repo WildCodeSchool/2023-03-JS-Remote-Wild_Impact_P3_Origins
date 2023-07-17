@@ -67,10 +67,10 @@ button.main-btn:hover {
   @include mainBtn($grey-green);
 }
 
-.games-btn {
+.signup-btn {
   margin: auto;
 }
 
-.games-container {
+.signup-container {
   @include form-container;
 }
