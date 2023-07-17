@@ -64,6 +64,11 @@ const AuthManager = require("./AuthManager");
 models.auth = new AuthManager();
 models.auth.setDatabase(pool);
 
+const VideosToTeamsManager = require("./VideosToTeamsManager");
+
+models.videosToTeams = new VideosToTeamsManager();
+models.videosToTeams.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
