@@ -68,35 +68,44 @@ function Signin() {
   };
 
   return (
-    <div style={{ marginTop: 400 }}>
+    <div>
+      <h1 className="main-title">Se connecter</h1>
       <form onSubmit={login}>
-        <input
-          type="email"
-          value={userSignin.email}
-          onChange={(event) => handleUser(event)}
-          name="email"
-          required
-        />
-        <label htmlFor="email">Email</label>
+        <div className="form-container">
+          <input
+            className="basic-input animated"
+            type="email"
+            value={userSignin.email}
+            onChange={(event) => handleUser(event)}
+            name="email"
+            placeholder="Email"
+            required
+          />
 
-        <input
-          type="password"
-          value={userSignin.password}
-          onChange={(event) => handleUser(event)}
-          name="password"
-          required
-        />
-        <label htmlFor="password">Password</label>
+          <input
+            className="basic-input forEntry animated"
+            type="password"
+            value={userSignin.password}
+            onChange={(event) => handleUser(event)}
+            name="password"
+            placeholder="Password"
+            required
+          />
 
-        <button type="submit">Signin</button>
+          <div className="btn-container">
+            <button type="submit" className="main-button">
+              Signin
+            </button>
+          </div>
 
-        <ToastContainer
-          autoClose={2000}
-          position="top-center"
-          draggable
-          transition={Flip}
-          toastClassName="custom-toast"
-        />
+          <ToastContainer
+            autoClose={2000}
+            position="top-center"
+            draggable
+            transition={Flip}
+            toastClassName="custom-toast"
+          />
+        </div>
       </form>
     </div>
   );

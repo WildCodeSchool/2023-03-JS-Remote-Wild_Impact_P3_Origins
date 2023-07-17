@@ -52,41 +52,49 @@ function Signup() {
   };
 
   return (
-    <div style={{ marginTop: 400 }}>
+    <div>
+      <h1 className="maint-title">S'inscrire</h1>
       <form onSubmit={createAccount}>
-        <input
-          type="email"
-          value={userSignup.email}
-          onChange={(event) => handleUser(event)}
-          name="email"
-          required
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="password"
-          value={userSignup.password}
-          onChange={(event) => handleUser(event)}
-          name="password"
-          required
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          value={userSignup.passwordConfirmation}
-          onChange={(event) => handleUser(event)}
-          name="passwordConfirmation"
-          required
-        />
-        <label htmlFor="passwordConfirmation">Confirmer le mot de passe</label>
-
-        <button type="submit">Signup</button>
-
-        <ToastContainer
-          autoClose={5000}
-          position="top-center"
-          draggable
-          pauseOnHover
-        />
+        <div className="form-container">
+          <input
+            className="basic-input animated"
+            type="email"
+            value={userSignup.email}
+            onChange={(event) => handleUser(event)}
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            className="basic-input formEntry animated"
+            type="password"
+            value={userSignup.password}
+            onChange={(event) => handleUser(event)}
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <input
+            className="basic-input formEntry animated"
+            type="password"
+            value={userSignup.passwordConfirmation}
+            onChange={(event) => handleUser(event)}
+            name="passwordConfirmation"
+            placeholder="Confirm password"
+            required
+          />
+          <div className="btn-container">
+            <button type="submit" className="main-button">
+              Signup
+            </button>
+          </div>
+          <ToastContainer
+            autoClose={5000}
+            position="top-center"
+            draggable
+            pauseOnHover
+          />
+        </div>
       </form>
     </div>
   );
