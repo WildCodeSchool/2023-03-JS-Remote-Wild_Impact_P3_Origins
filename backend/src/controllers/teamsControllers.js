@@ -89,7 +89,7 @@ const browsebyTeam = (req, res) => {
   models.videosToTeams
     .findAllVideos(teamId)
     .then((videos) => {
-      res.status(200).json({videos[0]});
+      res.status(200).json(videos[0]);
     })
     .catch((err) => {
       console.error(err);
