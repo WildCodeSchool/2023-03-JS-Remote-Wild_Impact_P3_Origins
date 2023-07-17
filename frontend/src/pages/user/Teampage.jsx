@@ -25,7 +25,7 @@ function Teampage() {
   return (
     <div className="Team-container">
       <h2 className="titre">{team.name}</h2>
-      <div className="image">
+      <div className="image team-image">
         <img src={team.src} alt={team.alt} className="poster" />
       </div>
       <ToastContainer

@@ -11,8 +11,8 @@ function VideoCard({ video }) {
         <ReactPlayer
           className="video-react-player"
           url={video.url}
-          width="90%"
-          height="90%"
+          width="89%"
+          height="89%"
         />
         <h2>{video.title}</h2>
       </div>

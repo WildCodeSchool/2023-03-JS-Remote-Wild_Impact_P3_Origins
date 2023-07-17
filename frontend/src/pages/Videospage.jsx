@@ -21,7 +21,7 @@ function Videospage() {
         </div>
         <HeaderSwiper />
       </header>
-      <div className="premium-swiper">
+      <div className="premium-swiper premium">
         <PremiumSwiper />
       </div>
       <div className="Videos-container">
