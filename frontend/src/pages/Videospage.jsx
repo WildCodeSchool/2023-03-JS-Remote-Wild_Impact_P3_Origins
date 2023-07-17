@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import VideoCard from "../components/VideoCard";
+import HeaderSwiper from "../components/HeaderSwiper";
+import PremiumSwiper from "../components/PremiumSwiper";
 
 function Videospage() {
   const [videos, setVideos] = useState([]);
@@ -17,14 +19,18 @@ function Videospage() {
         <div className="main-title">
           <h2 className="header-title">Page des videos</h2>
         </div>
-        <div className="Videos-container">
-          <div className="Videos-main">
-            {videos.map((video) => (
-              <VideoCard key={video.id} video={video} />
-            ))}
-          </div>
-        </div>
+        <HeaderSwiper />
       </header>
+      <div className="premium-swiper">
+        <PremiumSwiper />
+      </div>
+      <div className="Videos-container">
+        <div className="Videos-main">
+          {videos.map((video) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

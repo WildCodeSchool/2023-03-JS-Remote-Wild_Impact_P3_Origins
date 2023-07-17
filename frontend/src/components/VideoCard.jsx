@@ -1,15 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 import PropTypes from "prop-types";
 import videoType from "../Types/videoType";
 
 function VideoCard({ video }) {
   return (
     <div className="Video-card">
-      <video width="320" height="240" controls>
-        <source src={video.url} type="video" />
-        <track src="" kind="captions" label="Francais" default />
-      </video>
+      <div className="Video-container">
+        <ReactPlayer
+          className="video-react-player"
+          url={video.url}
+          width="90%"
+          height="90%"
+        />
+        <h2>{video.title}</h2>
+      </div>
 
       <div className="video-text-container">
         <Link to={`/videos/${video.id}`} className="Video-link">
@@ -18,9 +24,9 @@ function VideoCard({ video }) {
         <p className="Video-description">{video.description}</p>
         <p className="Video-date">{video.release_date}</p>
       </div>
-      <button type="button" className="details-btn">
+      <button type="button" className="main-btn video-btn">
         <Link to={`/videos/${video.id}`} className="Video-link">
-          Voir la page du video
+          Plus de détails
         </Link>
       </button>
     </div>
