@@ -88,8 +88,8 @@ const browsebyTeam = (req, res) => {
   const teamId = parseInt(req.params.id, 10);
   models.videosToTeams
     .findAllVideos(teamId)
-    .then((result) => {
-      res.send(result[0]);
+    .then((videos) => {
+      res.status(200).json({videos[0]});
     })
     .catch((err) => {
       console.error(err);
