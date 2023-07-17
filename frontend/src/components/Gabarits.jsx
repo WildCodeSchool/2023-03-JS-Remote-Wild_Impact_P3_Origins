@@ -4,9 +4,9 @@ function Gabarits() {
   return (
     <div>
       <div className="btn-container">
-        <a href="/" className="main-btn">
+        <button type="submit" className="main-btn">
           Envoyer
-        </a>
+        </button>
       </div>
       <h1 className="main-titel"> Titre</h1>
       <form>

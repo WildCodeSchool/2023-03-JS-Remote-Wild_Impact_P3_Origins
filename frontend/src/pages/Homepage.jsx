@@ -1,5 +1,6 @@
 import React from "react";
 import HeaderSwiper from "../components/HeaderSwiper";
+import AbonnementArguments from "../components/AbonnementArguments";
 
 function Homepage() {
   return (
@@ -7,6 +8,7 @@ function Homepage() {
       <header className="header-container">
         <HeaderSwiper />
       </header>
+      <AbonnementArguments />
     </div>
   );
 }
