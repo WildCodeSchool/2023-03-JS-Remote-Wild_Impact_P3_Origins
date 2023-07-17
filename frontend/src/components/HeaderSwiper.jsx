@@ -29,6 +29,7 @@ function HeaderSwiper() {
   return (
     <div className="player-wrapper">
       <Swiper
+        className="Header-Swiper"
         spaceBetween={150}
         slidesPerView={1}
         effect="effect-fade"
@@ -44,7 +45,6 @@ function HeaderSwiper() {
         }}
         navigation
         modules={[Pagination, Navigation, Autoplay, EffectFlip]}
-        className="mySwiper"
       >
         {videos.slice(1, 4).map((Video) => (
           <SwiperSlide key={Video.id}>
