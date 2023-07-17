@@ -25,6 +25,7 @@ router.delete("/videos/:id", videosControllers.destroy);
 
 router.get("/teams", teamsControllers.browse);
 router.get("/teams/:id", teamsControllers.read);
+router.get("/teams/:id/videos", teamsControllers.browsebyTeam);
 
 router.get("/games", gamesControllers.browse);
 router.get("/games/:id", gamesControllers.read);
