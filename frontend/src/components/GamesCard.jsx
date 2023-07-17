@@ -9,8 +9,12 @@ function GamesCard({ game, setGameModalIsOpen, setGameData }) {
   return (
     <div className="game-item">
       <img src={game.src} alt={game.alt} />
-      <button type="button" onClick={() => setDataGame(game)}>
-        +
+      <button
+        type="button"
+        onClick={() => setDataGame(game)}
+        className="main-btn game-btn"
+      >
+        + Découvrir le jeux
       </button>
     </div>
   );
