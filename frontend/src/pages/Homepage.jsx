@@ -1,6 +1,11 @@
 import React from "react";
 import HeaderSwiper from "../components/HeaderSwiper";
 import AbonnementArguments from "../components/AbonnementArguments";
+import FavorisSwiper from "../components/FavorisSwiper";
+import NewsAnimated from "../components/NewsAnimated";
+import ReprendreSwiper from "../components/ReprendreSwiper";
+import PremiumSwiper from "../components/PremiumSwiper";
+import Partenaires from "../components/Partenaires";
 
 function Homepage() {
   return (
@@ -9,6 +14,11 @@ function Homepage() {
         <HeaderSwiper />
       </header>
       <AbonnementArguments />
+      <FavorisSwiper />
+      <NewsAnimated />
+      <ReprendreSwiper />
+      <PremiumSwiper />
+      <Partenaires />
     </div>
   );
 }

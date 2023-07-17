@@ -21,6 +21,10 @@
   filter: saturate(100%);
 }
 
-.swiper {
-  height: 1000px;
+.Header-Swiper {
+  height: 1000px !important;
+}
+
+.swiper-wrapper {
+  height: 100%;
 }
