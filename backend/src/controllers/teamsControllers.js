@@ -84,10 +84,24 @@ const destroy = (req, res) => {
     });
 };
 
+const browsebyTeam = (req, res) => {
+  const teamId = parseInt(req.params.id, 10);
+  models.videosToTeams
+    .findAllVideos(teamId)
+    .then((result) => {
+      res.send(result[0]);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   add,
   edit,
   destroy,
+  browsebyTeam,
 };
