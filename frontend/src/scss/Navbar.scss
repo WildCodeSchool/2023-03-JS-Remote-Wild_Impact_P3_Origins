@@ -27,6 +27,7 @@
   top: 5%;
   left: 0;
   width: 100%;
+  min-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -180,7 +181,7 @@ a.nav-link:hover {
   margin: 0 auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   ul.nav-links li a {
     font-size: 2.6rem;
   }
@@ -196,6 +197,12 @@ a.nav-link:hover {
 
   .nav-overlay {
     top: 0%;
-    height: 35vh;
+    height: 39vh;
+    min-width: 100%;
   }
+
+  .navbar {
+    top: 2%;
+  }
+
 }

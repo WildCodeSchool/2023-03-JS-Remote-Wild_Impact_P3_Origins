@@ -28,7 +28,7 @@ function FavorisSwiper() {
   }, []);
 
   return (
-    <div>
+    <div className="Favoris-container">
       <div className="Favoris-title">
         <h2>Vos Favoris</h2>
       </div>
