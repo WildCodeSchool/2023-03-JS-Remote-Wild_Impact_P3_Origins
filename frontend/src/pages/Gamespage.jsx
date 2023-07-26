@@ -26,7 +26,6 @@ function Gamespage() {
       <header className="header-container">
         <HeaderSwiper />
       </header>
-      <header className="header-container" />
       <main>
         <FavorisSwiper />
         <div className="main-title">
