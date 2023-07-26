@@ -4,7 +4,10 @@ import AdminLayout from "./layout/AdminLayout";
 import Homepage from "./pages/Homepage";
 import Games from "./pages/admin/Games";
 import Gamespage from "./pages/Gamespage";
+import Teamspage from "./pages/Teamspage";
 import Videospage from "./pages/Videospage";
+import Videopage from "./pages/user/Videopage";
+import Teampage from "./pages/user/Teampage";
 import ProfilPage from "./pages/user/ProfilPage";
 import "./scss/App.scss";
 
@@ -25,7 +28,10 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="signin" element={<Signin />} />
           <Route path="games" element={<Gamespage />} />
+          <Route path="teams" element={<Teamspage />} />
+          <Route path="teams/:id" element={<Teampage />} />
           <Route path="videos" element={<Videospage />} />
+          <Route path="videos/:id" element={<Videopage />} />
           <Route path="profil" element={<ProfilPage />} />
         </Route>
 

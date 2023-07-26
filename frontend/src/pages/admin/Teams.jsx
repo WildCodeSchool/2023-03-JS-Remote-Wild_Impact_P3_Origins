@@ -72,9 +72,9 @@ function Teams() {
   }, []);
 
   return (
-    <div className="Bloc1">
-      <div className="Robin">
-        <label htmlFor="">
+    <div className="teams_container form-container">
+      <div>
+        <label htmlFor="" className="label-title">
           Choisir une team
           <select onChange={(event) => updateTeamState(+event.target.value)}>
             <option value={0}>Rafraichir</option>
@@ -86,11 +86,11 @@ function Teams() {
           </select>
         </label>
       </div>
-      <div className="Lucas">
-        <img src={team.src} alt="imagerie" />
+      <div>
+        <img src={team.src} alt="imagerie d'equipe" />
       </div>
-      <form onSubmit={(event) => postTeam(event)}>
-        <label>
+      <form className="teams-container" onSubmit={(event) => postTeam(event)}>
+        <label htmlFor="label" className="label-title">
           Name
           <input
             type="text"
@@ -98,6 +98,7 @@ function Teams() {
             minLength={1}
             maxLength={255}
             name="name"
+            className="basic-input animated"
             value={team.name}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
@@ -105,7 +106,7 @@ function Teams() {
           />
         </label>
 
-        <label>
+        <label htmlFor="label" className="label-title">
           Acronym
           <input
             type="text"
@@ -113,6 +114,7 @@ function Teams() {
             minLength={1}
             maxLength={255}
             name="acronym"
+            className="basic-input animated"
             value={team.acronym}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
@@ -120,7 +122,7 @@ function Teams() {
           />
         </label>
 
-        <label>
+        <label htmlFor="label" className="label-title">
           Source image
           <input
             type="text"
@@ -128,6 +130,7 @@ function Teams() {
             minLength={10}
             maxLength={255}
             name="src"
+            className="basic-input animated"
             value={team.src}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
@@ -135,7 +138,7 @@ function Teams() {
           />
         </label>
 
-        <label>
+        <label htmlFor="label" className="label-title">
           Alt
           <input
             type="text"
@@ -143,20 +146,33 @@ function Teams() {
             minLength={1}
             maxLength={255}
             name="alt"
+            className="basic-input animated"
             value={team.alt}
             onChange={(event) =>
               handleTeam(event.target.name, event.target.value)
             }
           />
         </label>
-        {!team.id && <button type="submit">Ajouter</button>}
+        {!team.id && (
+          <button type="submit" className="main-btn teams-btn">
+            Ajouter
+          </button>
+        )}
       </form>
       {team.id && (
         <>
-          <button type="button" onClick={(event) => deleteTeam(event)}>
+          <button
+            type="button"
+            className="main-btn teams-btn"
+            onClick={(event) => deleteTeam(event)}
+          >
             Supprimer
           </button>
-          <button type="button" onClick={(event) => updateTeam(event)}>
+          <button
+            type="button"
+            className="main-btn teams-btn"
+            onClick={(event) => updateTeam(event)}
+          >
             Modifier
           </button>
         </>

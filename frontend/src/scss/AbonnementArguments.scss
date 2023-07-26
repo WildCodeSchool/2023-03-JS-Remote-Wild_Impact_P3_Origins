@@ -1,0 +1,45 @@
+.abonnement-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 500px));
+  grid-gap: 30px 30px;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: auto;
+  height: 500px;
+  z-index: 1;
+  margin-top: 5rem;
+}
+
+.image-cont img {
+  height: 500px;
+}
+
+.abonnement-title {
+  font-size: 2.5rem;
+  background-color: $grey-green;
+  padding: 1rem;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+li.arguments-item {
+  list-style: none;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+}
+
+li.arguments-item::before {
+  content: "\00BB";
+  color: $flashy-green;
+  margin-right: 0.5rem;
+}
+
+.abonnement-submit {
+  margin-top: 0.8rem;
+  font-size: 1.5rem !important;
+  background-color: white;
+  margin-left: 1rem;
+}

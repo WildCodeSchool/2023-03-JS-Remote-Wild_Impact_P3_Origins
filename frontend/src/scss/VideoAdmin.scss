@@ -1,4 +1,3 @@
-/*BUTTON*/
 .main-titel {
   @include mainTitle;
 }
@@ -68,10 +67,10 @@ button.main-btn:hover {
   @include mainBtn($grey-green);
 }
 
-.signin-btn {
+.videos-btn {
   margin: auto;
 }
 
-.signin-container {
+.videos-container {
   @include form-container;
 }

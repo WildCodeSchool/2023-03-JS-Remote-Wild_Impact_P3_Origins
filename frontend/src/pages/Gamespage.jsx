@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import GamesCard from "../components/GamesCard";
 import connexion from "../services/connexion";
-import Gamer from "../assets/Gamer.png";
+import HeaderSwiper from "../components/HeaderSwiper";
+import FavorisSwiper from "../components/FavorisSwiper";
 
 function Gamespage() {
   const [games, setGames] = useState([]);
@@ -23,17 +24,23 @@ function Gamespage() {
   return (
     <div className="container">
       <header className="header-container">
-        <div className="main-title">
-          <h2 className="header-title">Page des jeux</h2>
-        </div>
-        <div className="image-container">
-          <img className="main-picture" src={Gamer} alt="esport" width="50%" />
-        </div>
+        <HeaderSwiper />
       </header>
       <main>
-        {games.map((game) => (
-          <GamesCard game={game} />
-        ))}
+        <FavorisSwiper />
+        <div className="main-title">
+          <h2 className="jeux-title">Nos jeux</h2>
+        </div>
+        <div className="games-container">
+          {games.map((game) => (
+            <GamesCard game={game} />
+          ))}
+        </div>
+        <div className="games-container">
+          {games.map((game) => (
+            <GamesCard game={game} />
+          ))}
+        </div>
       </main>
     </div>
   );
