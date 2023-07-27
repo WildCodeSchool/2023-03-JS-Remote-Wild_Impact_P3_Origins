@@ -11,6 +11,14 @@
   margin-top: -15rem;
 }
 
+.partenaires-wrapper {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
 .partenaires-container h4 {
   text-align: center;
   font-size: 1.6rem;
@@ -56,4 +64,35 @@
   width: 75%;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+@media screen and (max-width: 640px) {
+
+  .bg-grey {
+    background-color: white;
+  }
+
+  .partenaires-items {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .partenaires-title {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .partenaires-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 240px));
+    grid-gap: 30px 30px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: auto;
+    height: 100%;
+    z-index: 1;
+    margin-top: -15rem;
+  }
 }
