@@ -96,7 +96,7 @@ function Signin() {
           Connexion
         </button>
         <button type="button" onClick={goSignup} className="main-btn">
-          Crée un compte
+          Créer un compte
         </button>
 
         <ToastContainer

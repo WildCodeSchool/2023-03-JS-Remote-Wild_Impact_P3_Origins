@@ -30,7 +30,7 @@ function FavorisSwiper() {
   return (
     <div className="Favoris-container">
       <div className="Favoris-title">
-        <h2>Vos Favoris</h2>
+        <h2>League of Legends</h2>
       </div>
       <div className="Favoris-wrapper">
         <Swiper
@@ -51,7 +51,7 @@ function FavorisSwiper() {
           modules={[Pagination, Navigation, Autoplay, EffectFlip]}
           className="mySwiper"
         >
-          {videos.slice(1, 4).map((Video) => (
+          {videos.slice(1, 5).map((Video) => (
             <SwiperSlide key={Video.id} className="Favoris-Swiper">
               <div className="video-description">
                 <h3 className="descript-title">{Video.title}</h3>
