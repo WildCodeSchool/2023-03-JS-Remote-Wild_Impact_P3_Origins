@@ -3,7 +3,7 @@ import PartenairePicture from "../assets/logo-partenaire.png";
 
 function Partenaires() {
   return (
-    <section>
+    <section className="partenaires-wrapper">
       <h1 className="partenaires-title">Nos Partenaires</h1>
       <div className="bg-grey" />
       <div className="partenaires-container">

@@ -28,3 +28,25 @@
 .swiper-wrapper {
   height: 100%;
 }
+
+
+@media (max-width: 900px) {
+  .Header-Swiper {
+    height: 400px !important;
+    margin-top: 38%;
+    min-width: 100%;
+  }
+
+  .swiper-wrapper {
+    height: 100%;
+    min-width: 100%;
+  }
+
+  .player-wrapper {
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    z-index: 1;
+  }
+
+}

@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import ReactPlayer from "react-player";
 import videoType from "../Types/videoType";
 
 function VideoCard({ video }) {
   return (
     <div className="Video-card">
-      <video width="320" height="240" controls>
-        <source src={video.url} type="video" />
-        <track src="" kind="captions" label="Francais" default />
-      </video>
+      <ReactPlayer
+        className="react-player-video-page"
+        url={video.url}
+        width="100%"
+        height="100%"
+      />
 
       <div className="video-text-container">
         <Link to={`/videos/${video.id}`} className="Video-link">
