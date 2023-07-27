@@ -1,13 +1,12 @@
 .abonnement-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 500px));
-  grid-gap: 30px 30px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 200px;
   max-width: 100%;
   margin: auto;
   z-index: 1;
-  margin-top: 5rem;
+  padding-bottom: 50px;
 }
 
 .image-cont img {

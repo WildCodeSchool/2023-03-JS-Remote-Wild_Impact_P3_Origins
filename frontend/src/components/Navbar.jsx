@@ -19,7 +19,7 @@ function Navbar() {
               alt="logoGamer "
               width="30%"
             />
-            <h1> Esport</h1>
+            <h1> ORIGINS DIGITAL</h1>
           </div>
           <button
             className="menu-toggle"
@@ -95,6 +95,20 @@ function Navbar() {
               }}
             >
               <TfiDesktop /> Videos
+            </Link>
+            <div className="nav-item-wrapper" />
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/signin"
+              className="nav-link"
+              onClick={() => setNavOpen(!navOpen)}
+              style={{
+                top: navOpen ? "0" : "70px",
+                transitionDelay: navOpen ? "0.4s" : "0s",
+              }}
+            >
+              <TfiDesktop /> Connexion
             </Link>
             <div className="nav-item-wrapper" />
           </li>

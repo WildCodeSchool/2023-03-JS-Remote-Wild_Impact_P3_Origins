@@ -11,12 +11,6 @@ function Signin() {
     password: "",
   });
 
-  console.info("Admin :eric.jean@exemple.fr OU sacha.comete@exemple.fr");
-  console.info(
-    "User premium : jean.dubalcon@exemple.fr OU aled.oskour@exemple.fr"
-  );
-  console.info("MDP => 123123");
-
   const { setUser } = useCurrentUser();
   const navigate = useNavigate();
 
@@ -67,8 +61,12 @@ function Signin() {
     }
   };
 
+  const goSignup = () => {
+    navigate("/signup");
+  };
+
   return (
-    <div style={{ marginTop: 400 }}>
+    <div className="signin-box">
       <form onSubmit={login} className="signin-container">
         <input
           type="email"
@@ -93,8 +91,12 @@ function Signin() {
         <label htmlFor="password" className="label-title">
           Password
         </label>
-        <button type="submit" className="main-btn signin-btn">
-          Signin
+
+        <button type="submit" className="main-btn">
+          Connexion
+        </button>
+        <button type="button" onClick={goSignup} className="main-btn">
+          Crée un compte
         </button>
 
         <ToastContainer

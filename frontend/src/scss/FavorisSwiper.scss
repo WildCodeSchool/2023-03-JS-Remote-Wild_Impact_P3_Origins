@@ -3,9 +3,9 @@
   font-size: 2rem;
   background-color: $background-grey;
   height: 300px;
-  padding-top: 30px;
-  margin-top: 2rem;
-  font-weight: 200 !important;
+  padding-top: 80px;
+  padding-bottom: 300px;
+  // font-weight: 200 !important;
 }
 
 .Favoris-wrapper {
@@ -43,14 +43,14 @@
   z-index: 1;
 }
 
-.react-player-favoris iframe:hover {
-  filter: saturate(100%);
-  width: 90%;
-  height: 90%;
-  margin-left: 3rem;
-  margin-top: 2rem;
-  margin-right: auto;
-}
+// .react-player-favoris iframe:hover {
+//   filter: saturate(100%);
+//   width: 90%;
+//   height: 90%;
+//   margin-left: 3rem;
+//   margin-top: 2rem;
+//   margin-right: auto;
+// }
 
 .Favoris-Swiper {
   height: 400px !important;
@@ -105,5 +105,4 @@
   .Favoris-Swiper {
     width: 100% !important;
   }
-
 }

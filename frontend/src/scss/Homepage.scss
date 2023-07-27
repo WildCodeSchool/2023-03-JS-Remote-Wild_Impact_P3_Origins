@@ -19,10 +19,10 @@
 
 header {
   background-color: $background-black;
+  padding-bottom: 150px;
 }
 
 @media screen and (max-width: 900px) {
-
   .abonnement-container {
     height: 100%;
   }
@@ -55,6 +55,4 @@ header {
     flex-direction: column;
     justify-content: center;
   }
-
-
 }
