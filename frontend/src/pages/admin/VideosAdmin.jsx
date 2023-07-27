@@ -125,7 +125,7 @@ function FormAddVideo() {
 
         <label htmlFor="label" className="label-title">
           Description
-          <input
+          <textarea
             type="text"
             required
             minLength={10}

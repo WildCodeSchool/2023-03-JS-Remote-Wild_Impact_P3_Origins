@@ -115,9 +115,10 @@ function Navbar() {
 
           {user.connected && (
             <li className="menu-item">
-              <Link to="/profil" className="menu-item">
+              <Link to="/profil" className="nav-link">
                 Profil
               </Link>
+              <div className="nav-item-wrapper" />
             </li>
           )}
         </ul>

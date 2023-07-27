@@ -36,11 +36,6 @@ function Gamespage() {
             <GamesCard game={game} />
           ))}
         </div>
-        <div className="games-container">
-          {games.map((game) => (
-            <GamesCard game={game} />
-          ))}
-        </div>
       </main>
     </div>
   );

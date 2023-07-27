@@ -11,9 +11,8 @@ function ConnexionBar() {
         <Link to="/signin" className="base-btn">
           Se Connecter
         </Link>
-
-        <Link to="/admin/" className="base-btn">
-          Administrateur
+        <Link to="/signup" className="base-btn">
+          Créer un compte
         </Link>
       </div>
     </div>

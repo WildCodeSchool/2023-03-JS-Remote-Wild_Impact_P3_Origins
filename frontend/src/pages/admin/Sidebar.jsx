@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   TfiAlignJustify,
   TfiHome,
@@ -28,40 +28,14 @@ function Sidebar() {
       icon: <TfiVideoCamera />,
     },
     {
-      path: "/admin/videos",
-      name: "Liste des videos",
-    },
-    {
-      path: "/admin/videos/add",
-      name: "Ajouter une video",
-    },
-    {
       path: "/admin/games",
       name: "Jeux",
       icon: <TfiGame />,
     },
     {
-      path: "/admin/games",
-      name: "Liste des jeux",
-    },
-
-    {
-      path: "/admin/games/add",
-      name: "Ajouter un jeu",
-    },
-    {
       path: "/admin/teams",
       name: "Equipes",
       icon: <TfiCup />,
-    },
-    {
-      path: "/admin/teams",
-      name: "Liste des équipes",
-    },
-
-    {
-      path: "/admin/teams/add",
-      name: "Ajouter une équipe",
     },
     {
       path: "/admin/sliders",
@@ -105,6 +79,14 @@ function Sidebar() {
             </div>
           </NavLink>
         ))}
+        <Link to="/" className="link" activeclassName="active">
+          <div
+            style={{ display: isOpen ? "block" : "none" }}
+            className="link_text"
+          >
+            Retour sur le site
+          </div>
+        </Link>
       </div>
     </div>
   );

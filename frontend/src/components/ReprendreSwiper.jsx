@@ -50,7 +50,7 @@ function ReprendreSwiper() {
           modules={[Pagination, Navigation, Autoplay, EffectFlip]}
           className="mySwiper"
         >
-          {videos.slice(1, 4).map((Video) => (
+          {videos.slice(1, 8).map((Video) => (
             <SwiperSlide key={Video.id} className="Favoris-Swiper">
               <div className="video-description">
                 <h3 className="descript-title">{Video.title}</h3>
