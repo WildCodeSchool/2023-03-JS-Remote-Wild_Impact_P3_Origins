@@ -5,8 +5,7 @@ function Partenaires() {
   return (
     <section className="partenaires-wrapper">
       <h1 className="partenaires-title">Nos Partenaires</h1>
-      <div className="bg-grey" />
-      <div className="partenaires-container">
+      <div className="partenaires">
         <div className="partenaires-items">
           <img src={PartenairePicture} alt="premium" height="300px" />
           <h4>Partenaire 1</h4>

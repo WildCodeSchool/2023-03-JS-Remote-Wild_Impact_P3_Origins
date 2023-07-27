@@ -61,8 +61,12 @@ function Signin() {
     }
   };
 
+  const goSignup = () => {
+    navigate("/signup");
+  };
+
   return (
-    <div style={{ marginTop: 400 }}>
+    <div className="signin-box">
       <form onSubmit={login} className="signin-container">
         <input
           type="email"
@@ -87,8 +91,12 @@ function Signin() {
         <label htmlFor="password" className="label-title">
           Password
         </label>
-        <button type="submit" className="main-btn signin-btn">
-          Signin
+
+        <button type="submit" className="main-btn">
+          Connexion
+        </button>
+        <button type="button" onClick={goSignup} className="main-btn">
+          Crée un compte
         </button>
 
         <ToastContainer
