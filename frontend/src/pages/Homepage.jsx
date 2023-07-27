@@ -13,11 +13,11 @@ function Homepage() {
       <header className="header-container">
         <HeaderSwiper />
       </header>
-      <AbonnementArguments />
       <FavorisSwiper />
       <NewsAnimated />
       <ReprendreSwiper />
       <PremiumSwiper />
+      <AbonnementArguments />
       <Partenaires />
     </div>
   );

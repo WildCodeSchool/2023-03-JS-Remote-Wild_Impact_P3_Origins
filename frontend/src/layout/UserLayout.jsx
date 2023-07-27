@@ -1,13 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import ConnexionBar from "../components/ConnexionBar";
+// import ConnexionBar from "../components/ConnexionBar";
 import Footer from "../components/Footer";
 
 function UserLayout() {
   return (
     <div>
-      <ConnexionBar />
+      {/* <ConnexionBar /> */}
       <Navbar />
       <Outlet />
       <Footer />

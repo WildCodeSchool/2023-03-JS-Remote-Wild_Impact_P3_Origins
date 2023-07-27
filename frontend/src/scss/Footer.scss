@@ -7,8 +7,7 @@
   margin: auto;
   background-color: #2a2c2b;
   height: 7rem;
-  margin-top: 5%;
-  ;
+  margin-top: 6%;
 }
 
 .footer-links {
@@ -17,7 +16,6 @@
   align-items: center;
   max-width: 100%;
   flex-direction: row;
-  flex-wrap: nowrap;
   align-content: center;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -38,7 +36,6 @@
 }
 
 @media (max-width: 900px) {
-
   .footer-links {
     display: flex;
     justify-content: space-between;
