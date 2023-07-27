@@ -111,25 +111,25 @@ VALUES (
 INSERT INTO
     users (email, password)
 VALUES (
-        "eric.jean@exemple.fr",
+        "eric.jean@exemple.com",
         "Secret"
     ), (
-        "titouan.dupont@exemple.fr",
+        "titouan.dupont@exemple.com",
         "Secret1"
     ), (
-        "eude.georges@exemple.fr",
+        "eude.georges@exemple.com",
         "Secret2"
     ), (
-        "julien.riche@exemple.fr",
+        "julien.riche@exemple.com",
         "Secret3"
     ), (
-        "aled.oskour@exemple.fr",
+        "aled.oskour@exemple.com",
         "Secret4"
     ), (
-        "jean.dubalcon@exemple.fr",
+        "jean.dubalcon@exemple.com",
         "Secret5"
     ), (
-        "sacha.comete@exemple.fr",
+        "sacha.comete@exemple.com",
         "Secret6"
     );
 
